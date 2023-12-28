@@ -116,3 +116,45 @@ Every data file consists of a header (`meta_data`) with version and creation tim
         * data series is an array of 168 (1 per 24 hours per 7 days) value arrays with two values each - timestamp and power production in MWh
         * so at 1703599200000 (2023-12-26, 15:00 (GMT+1)) the power production was 1279.75 MWh
     * as a result: on 26-12-2023 in the hour between 15:00 an 16:00 1279.75 MWh solar power was produced in Germany
+
+
+## Assumption
+
+We've checked the request (plain, via curl) of only on of the data files, identified by their url path. So we tried `curl -X GET 'https://www.smard.de/app/chart_data/1225/DE/1225_DE_hour_1534716000000.json' -H 'Accept: application/json, text/plain, */*'` to request the data for *wind offshore* (`1225`) for *Germany* (`DE`) for the week starting Mondey, 20th August 2018 00:00:00 (`1534716000000`) on a hourly basis.
+
+And ... it worked. We got a response without providing session cookies or other information.
+
+So we'll try to get all the files for all the power sources for a given period of time (always fenced by start of complete weeks)
+
+## outline
+
+### input
+
+* start-date
+* end-date
+* list of IDs 
+* output filename
+
+```
+smard-extractor.py --start 2023-01-01 --end 2023-12-31 --ids 1225,4225, ... --output data.csv
+```
+
+### outcome 
+
+as a result we get a csv file with the following structure
+
+```
+date,hour,type,value
+   ...
+2023-12-27,17,1225,649.75
+   ....
+```
+
+where
+
+* date - the date in format yyyy-mm-dd
+* hour - the hour in 24 hour format (0-23)
+* type - power source or consumption
+* value - float in MWh in US notation
+* delimiter is comma
+* header line as given
