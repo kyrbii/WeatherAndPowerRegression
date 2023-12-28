@@ -41,21 +41,25 @@ BaseURL is `https://opendata.dwd.de/climate_environment/CDC/observations_germany
 
 ##  outline
 
-* ergebnis ist csv (groß und mächtig)
-* davor je station ein verzeichnis
-* in diesem je informationsart 
+* as a result we will get a csv file (big and mighty)
+* before that we will have a directory for each and every weather station
+* in this dir there will be .csv files for every type of information
 
+
+```
 /044/airtemp.csv
     044,tu,20221110,01,14.3,72.0
     044,tu,20221110,01,14.3,72.0
     044,tu,20221110,01,14.3,72.0
     044,tu,20221110,01,14.3,72.0
     044,tu,20221110,01,14.3,72.0
+
 /044/wind.csv
     044,wi,20221110,12,180
     044,wi,20221110,12,180    
     044,wi,20221110,12,180
     044,wi,20221110,12,180
+```
 
 all
 extract_tu_dwd --start 2022-01-01 --end 2022-12-31 --station 044 --output /044/airtemp.csv
