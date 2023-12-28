@@ -1,8 +1,11 @@
-# Power Doku
+# Power Documentation
 
-## Photovoltaik
+Here all the files, that smard.de requests as we try to gather the data for power production, are displayed.
 
-### page-filter-configuration
+On top of this, our procedure is documented.
+
+
+## page-filter-configuration
 
 First a POST for `page-filter-configuration` is issued with form-urlencoded parameters and returns nothing ()
 
@@ -36,7 +39,7 @@ First a POST for `page-filter-configuration` is issued with form-urlencoded para
     * `1228` other renewables
     * `0410` for whole consumption (prefix `500`)
 
-### index_hour.json
+## index_hour.json
 
 Next a GET for `index-hour.json` is issued and returns all stored interval starts. An interval seems to be one week (7 days).
 First possible (at the moment of writing 2023-12-28) is  29. Dezember 2014 00:00:00, last possible is 25. Dezember 2023 00:00:00 starting with monday dates.
@@ -57,7 +60,7 @@ First possible (at the moment of writing 2023-12-28) is  29. Dezember 2014 00:00
 
 ```
 
-### data files
+## data files
 
 For every source a couple of data files `<moduleId>_DE_hour_<timestamp>.json` is requested.
 Timestamps are timestamps from `index_hour.json` (monday starts in Epoch time).
