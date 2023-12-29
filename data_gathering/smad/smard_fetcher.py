@@ -13,14 +13,17 @@ def startup(time_codes):
     short_power = ['4068','4071','4067','4069','1225','1223','1226','1224','1227','4066','4070','1228']
     
     for short_code in short_power:
-        os.makedirs(f'./raw/{short_code}')
+        os.makedirs(f'./raw/{short_code}', mode=0o777, exist_ok=True)
         for timecode in time_codes:
             request_and_save_json(headers, timecode, short_code)
 
 def request_and_save_json(headers, time_code, short_code):
+    print(f'saving {short_code} -> {time_code}')
     response = requests.get(f'https://www.smard.de/app/chart_data/{short_code}/DE/{short_code}_DE_hour_{time_code}.json', headers=headers)
-    file2create = open(f'./raw/{short_code}/{time_code}.json', 'x')
+    file2create = open(f'./raw/{short_code}/{time_code}.json', 'w')
     file2create.write(f'{response.json()}')
+    file2create.close()
+    print(f'saved and closed {short_code} -> {time_code}')
 
 if __name__ == '__main__':
     time_codes = [
@@ -75,6 +78,7 @@ if __name__ == '__main__':
         1669590000000,
         1670194800000,
         1670799600000,
+        1671404400000,
         1672009200000
     ]
     startup(time_codes)
