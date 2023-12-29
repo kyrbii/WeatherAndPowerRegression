@@ -1,6 +1,4 @@
-import os
 import csv
-import re
 import json
 
 def startup(timecodes, shortpowers):
@@ -78,7 +76,8 @@ if __name__ == '__main__':
         '1227',
         '4066',
         '4070',
-        '1228']
+        '1228',
+        '410']
     timecodes = [
         1640559600000, 
         1641164400000,

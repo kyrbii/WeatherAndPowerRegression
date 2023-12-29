@@ -10,7 +10,7 @@ def startup(time_codes):
     # Sommerzeit (GMT+2) 2022 in Deutschland Von Sonntag, 27. März 02:00 Uhr bis Sonntag, 30. Oktober  03:00 Uhr
     # https://www.smard.de/app/chart_data/1225/DE/1225_DE_hour_1534716000000.json
     #
-    short_power = ['4068','4071','4067','4069','1225','1223','1226','1224','1227','4066','4070','1228']
+    short_power = ['4068','4071','4067','4069','1225','1223','1226','1224','1227','4066','4070','1228','410']
     
     for short_code in short_power:
         os.makedirs(f'./raw/{short_code}', mode=0o777, exist_ok=True)
