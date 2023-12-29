@@ -4,10 +4,12 @@ import os
 import re
 
 
-RAW_TEXT_FILES = '/raw/txt'
 
-CSV_FILE_PATTERN = "^(\d{5})_(.*)\.csv$"
+RAW_TEXT_FILES = '/raw/txt' # where the raw text files are (relative to the base directory)
 
+CSV_FILE_PATTERN = "^(\d{5})_(.*)\.csv$"  # file name of data file (see iterate_weatherdata.py and dwd_extractor.py)
+
+# 
 SOURCE_DATA = { 'TU' : ['temperature', 'moisture'],
                 'N'  : ['cloudiness'],
                 'RR' : ['downfall_height', 'downfall_indicator', 'downfall_type'],
