@@ -1,2 +1,3 @@
 *.exe
 data_gathering/dwd/raw
+data_gathering/dwd/__pycache__

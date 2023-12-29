@@ -101,27 +101,7 @@ def downloadZipFile(ftp, dataDir, stationFiles, targetFileBase):
 
 
 
-
-
-def filterStationData(row, station, startDate, endDate):
-    # 0 = station id
-    # 1 = date and hour
-    # 2 = not interesting
-    # 3 = temperature in °C
-    # 4 = moisture in %
-    # 5 = end of record
-    rowStationId = ('00000' + row[0].strip())[-5:]
-    rowDate = row[1][0:8]
-    rowHour = row[1][8:10]
-    rowTemperature = float(row[3].strip())
-    rowHumidity = float(row[4].strip())
-    if (rowStationId == station) and (rowDate >= startDate) and (rowDate <= endDate):
-        return (rowStationId, rowDate, rowHour, rowTemperature, rowHumidity)
-    return (None, None, None, None, None)
-
-
-
-def extractStationData(stationFiles, targetFileBase, station, startDate, endDate):
+def extractStationData(stationFiles, targetFileBase, station, startDate, endDate, mapFunction):
     stationData = []
     tailDateHour = '0000000000'
     for stationFile in stationFiles:
@@ -134,16 +114,16 @@ def extractStationData(stationFiles, targetFileBase, station, startDate, endDate
                         first = True
                         for row in reader:
                             if not first:
-                                (rowStation, rowDate, rowHour, rowTemperature, rowHumidity) = filterStationData(row, station, startDate, endDate)
+                                rowStation, rowDate, rowHour, rowData = mapFunction(row, station, startDate, endDate)
                                 if (rowStation != None):
                                     if (rowDate + rowHour) > tailDateHour:
-                                        stationData.append((rowStation, rowDate, rowHour, rowTemperature, rowHumidity))
+                                        stationData.append((rowStation, rowDate, rowHour, rowData))
                                         tailDateHour = rowDate + rowHour
                             first = False
     return stationData
 
 
-def writeStationData(stationData, targetFileBase, station, dataType):
+def writeStationData(stationData, targetFileBase, station, dataType, columnNames):
     try:
         os.makedirs(targetFileBase + TXT_DATA_PATH + station)
     except FileExistsError:
@@ -155,17 +135,29 @@ def writeStationData(stationData, targetFileBase, station, dataType):
         pass
     with open(filename, 'w') as csvFile:
         csvWriter = csv.writer(csvFile, delimiter=',')
-        csvWriter.writerow(['station','date','hour','temp','humidity'])
-        csvWriter.writerows(stationData)
+        headNames = ['station', 'date', 'hour']
+        headNames.extend(columnNames)
+        csvWriter.writerow(headNames)
+        for dataLine in stationData:
+            dataCells = []
+            dataCells.append(dataLine[0])
+            dataCells.append(dataLine[1])
+            dataCells.append(dataLine[2])
+            if isinstance(dataLine[3],tuple):
+                for dataValue in dataLine[3]:
+                    dataCells.append(dataValue)
+            else:
+                dataCells.append(dataLine[3])
+            csvWriter.writerow(dataCells)
                         
 
 
-def extractZipFile(ftp, startDate, endDate, station, dataDir, dataType, targetFileBase):
+def extractZipFile(ftp, startDate, endDate, station, dataDir, dataType, targetFileBase, mapFunction, columnNames):
     stationFiles = getStationFiles(ftp, startDate, endDate, station, dataDir, dataType)
     if (len(stationFiles) > 0):
         downloadZipFile(ftp, dataDir, stationFiles, targetFileBase)
-        stationData = extractStationData(stationFiles, targetFileBase, station, startDate, endDate)
-        writeStationData(stationData, targetFileBase, station, dataType)
+        stationData = extractStationData(stationFiles, targetFileBase, station, startDate, endDate, mapFunction)
+        writeStationData(stationData, targetFileBase, station, dataType, columnNames)
 
 
 
@@ -184,7 +176,10 @@ def getStations(ftp, dataDir, dataType, targetFileBase):
         except:
             data = None
     if data:
-        with open(targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv', 'w', encoding='cp1252') as downloadFile:
+        print(f"writing to {targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv'}")
+        with open(targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv', 'w', encoding='cp1252') as csvFile:
+            csvWriter = csv.writer(csvFile, delimiter=',')
+            csvWriter.writerow(['station','date_from','date_to','altitude','longitude','lattitude','name','state'])
             data_as_str = data.getvalue().decode('cp1252')
             data_as_array = data_as_str.split('\r\n')
             line_cnt = 0
@@ -193,13 +188,13 @@ def getStations(ftp, dataDir, dataType, targetFileBase):
                     if (len(data_line) > 0):
                         match = re.match(DWD_STATION_LIST_PATTERN, data_line)
                         listOfAllStations.append(match.group(1))
-                        # print(f"{match.group(1)} - {match.group(2)} - {match.group(3)} - {match.group(4)} - {match.group(5)} - {match.group(6)} - {match.group(7)} - {match.group(8)}")
+                        csvWriter.writerow([match.group(1), match.group(2), match.group(3), match.group(4), match.group(5), match.group(6), match.group(7), match.group(8)])
                 line_cnt += 1
     return listOfAllStations
 
 
 
-def startup():
+def startup(dataType, dataDir, mapFunction, columnNames):
 
     startDate = '20220101'
     endDate = '20221231'
@@ -207,16 +202,13 @@ def startup():
     # connect to dwd ftp server
     ftp = FTP(DWD_FTP_SERVER)
     ftp.login()
-
-    dataType = 'TU'
-    dataDir = 'air_temperature'
     targetFileBase = '.'
 
     stationList = getStations(ftp, dataDir, dataType, targetFileBase)
-    print(stationList)
-    #for station in stationArray:
-    #    print(f"working for {station}")
-    #    extractZipFile(ftp, startDate, endDate, station, dataDir, dataType, targetFileBase)
+    for station in stationList:
+        print(f"working for {station} on {dataType}")
+        extractZipFile(ftp, startDate, endDate, station, dataDir, dataType, targetFileBase, mapFunction, columnNames)
+
     ftp.close()
 
 

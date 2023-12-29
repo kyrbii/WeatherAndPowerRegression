@@ -1,20 +1,22 @@
-import dwd_extrator
+import dwd_extractor
+
+
 
 def call_function():
     short_types = ['TU','N','RR','SD','VV','FF']
     full_types = ['air_temperature','cloudiness','precipitation','sun','visibility','wind']
     i = 0
-    dwd_extrator(short_types[i], full_types[i], map_TU, ['temperature','moisture'] )
+    dwd_extractor.startup(short_types[i], full_types[i], map_TU, ['temperature','moisture'] )
     i+=1
-    dwd_extrator(short_types[i], full_types[i], map_N, ['cloudiness'] )
+    dwd_extractor.startup(short_types[i], full_types[i], map_N, ['cloudiness'] )
     i+=1
-    dwd_extrator(short_types[i], full_types[i], map_RR, ['downfall_height','downfall_indicator','downfall_type'] )
+    dwd_extractor.startup(short_types[i], full_types[i], map_RR, ['downfall_height','downfall_indicator','downfall_type'] )
     i+=1
-    dwd_extrator(short_types[i], full_types[i], map_SD, ['sunshine_duration'] )
+    dwd_extractor.startup(short_types[i], full_types[i], map_SD, ['sunshine_duration'] )
     i+=1
-    dwd_extrator(short_types[i], full_types[i], map_VV, ['visibility'] )
+    dwd_extractor.startup(short_types[i], full_types[i], map_VV, ['visibility'] )
     i+=1
-    dwd_extrator(short_types[i], full_types[i], map_FF, ['wind_speed','wind_direction'] )
+    dwd_extractor.startup(short_types[i], full_types[i], map_FF, ['wind_speed','wind_direction'] )
 
 
 def map_TU(row, station, startdate, enddate):
