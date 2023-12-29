@@ -65,8 +65,8 @@ def map_RR(row, station, startdate, enddate):
     row_date = row[1][0:8]
     row_hour = row[1][8:10]
     row_downfallheight = float(row[3].strip())
-    row_downfallindicator = row[4].strip
-    row_downfalltype = row[5].strip
+    row_downfallindicator = row[4].strip()
+    row_downfalltype = row[5].strip()
     if (row_stationId == station) and (row_date >= startdate) and (row_date <= enddate):
         return (row_stationId, row_date, row_hour, (row_downfallheight, row_downfallindicator, row_downfalltype))
     return (None, None, None, None)

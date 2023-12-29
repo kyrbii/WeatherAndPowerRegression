@@ -1,3 +1,4 @@
 *.exe
 data_gathering/dwd/raw
 data_gathering/dwd/__pycache__
+data_gathering/dwd/test_mapping.py
