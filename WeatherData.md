@@ -79,3 +79,4 @@ extract_tu_dwd --start 2022-01-01 --end 2022-12-31 --station 044 --output /044/a
 * ftp login
 * `cwd('/climate_environment/CDC/observations_germany/climate/hourly/air_temperature')`
 * list historical directory (`RETR LIST`)
+* caching der Datei?
