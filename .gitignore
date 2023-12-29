@@ -4,4 +4,5 @@ data_gathering/dwd/__pycache__
 data_gathering/dwd/test_mapping.py
 *.json
 *.csv
-data_gathering/smad/test.py
+!data_gathering/smard/power2022.csv
+data_gathering/smard/test.py

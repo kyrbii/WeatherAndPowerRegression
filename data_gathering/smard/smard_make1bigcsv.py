@@ -1,23 +1,37 @@
 import csv
+import time
 
-def startup(shortys, DICT_shortys):
-    data = [[]]
+def startup(shortys, DICT_shortys, start_end):
+    #data = [15][9500]
+    data = [ ['x']*15 for i in range(8760)]
     dimension_counter = int(2)
-    create_power_csv(shortys, DICT_shortys)
     for short in shortys:
-        readnstore_shorty_csv(short, data, dimension_counter)
+        readnstore_shorty_csv(short, data, dimension_counter, start_end)
         dimension_counter += 1
-    write_in_power_csv(data)
-    pass
-def create_power_csv(shortys, DICT_shortys):
+    create_power_csv(shortys, DICT_shortys, data)
+    # trim_powercsv(time)
+    # line 2 bis line 121 sind zu viel
+    # ab line 8882 ist zu viel (1672527600000 ist schon das neue Jahr)
+
+
+# def trim_powercsv(time):
+    # with open(f'./raw/power2022.csv', newline='') as main_csv:
+        # reader = csv.reader(main_csv, delimiter=',', quotechar='\'')
+        # with open('./raw/temp2022.csv', 'w') as temp_csv:
+            # writer = csv.writer(temp_csv, delimiter=',', quotechar='\'', lineterminator='\n')
+            # for row in reader:
+                # pass
+
+def create_power_csv(shortys, DICT_shortys, data):
     shortdicts = ['date','hour']
     shortdicts.extend(DICT_shortys.values())
     # change path afterwards to localize the data
-    with open('./raw/power2022.csv', 'w') as csv_file:
-        start_row = csv.writer(csv_file, delimiter=',', quotechar='\'')
+    with open('./power2022.csv', 'w') as csv_file:
+        start_row = csv.writer(csv_file, delimiter=',', quotechar='\'', lineterminator='\n')
         start_row.writerow(shortdicts)
+        start_row.writerows(data)
 
-def readnstore_shorty_csv(short, data, dimension_counter):
+def readnstore_shorty_csv(short, data, dimension_counter, start_end):
     with open(f'./raw/{short}/{short}.csv', newline='') as open_csv:
         csvreader = csv.reader(open_csv, delimiter=',', quotechar='\'')
         counter = int(0)
@@ -26,14 +40,12 @@ def readnstore_shorty_csv(short, data, dimension_counter):
             if first:
                 first = False
                 continue
-            data[dimension_counter][counter] = row[1]
-            data[0][counter] = row[0]
-            counter += 1
-        pass
-    pass
-
-def write_in_power_csv():
-    pass
+            if start_end[0]<=int(row[0]) and start_end[1]>=int(row[0]):
+                data[counter][dimension_counter] = row[1]
+                date = time.localtime(float(row[0])/1000)
+                data[counter][0] = f'{date[0]:04}{date[1]:02}{date[2]:02}'
+                data[counter][1] = f'{date[3]:02}'
+                counter += 1
 
 
 
@@ -71,10 +83,11 @@ if __name__ == '__main__':
                     '4070':'pumped_storage',
                     '410':'power_consumption_germany'
                     }
+    start_end = [1640991600000,1672524000000]
     
     # shortys = [ '4068',
     #             '1226']
     # DICT_shortys = {'4068':'solar',
     #                 '1226':'hydro'}
     
-    startup(shortys, DICT_shortys)
+    startup(shortys, DICT_shortys, start_end)
