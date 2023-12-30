@@ -48,7 +48,7 @@ def map_N(row, station, startdate, enddate):
     row_stationId = ('00000' + row[0].strip())[-5:]
     row_date = row[1][0:8]
     row_hour = row[1][8:10]
-    row_cloudiness = row[5].strip()
+    row_cloudiness = row[4].strip()
     if (row_stationId == station) and (row_date >= startdate) and (row_date <= enddate):
         return (row_stationId, row_date, row_hour, row_cloudiness)
     return (None, None, None, None)
