@@ -5,6 +5,7 @@ import dwd_extractor
 def call_function():
     short_types = ['TU','N','RR','SD','VV','FF']
     full_types = ['air_temperature','cloudiness','precipitation','sun','visibility','wind']
+    # for every map function it's own call
     i = 0
     dwd_extractor.startup(short_types[i], full_types[i], map_TU, ['temperature','moisture'] )
     i+=1
@@ -26,6 +27,7 @@ def map_TU(row, station, startdate, enddate):
     # 3 = temperature in °C
     # 4 = moisture in %
     # 5 = end of record
+    # examine the rows from the csv on call from dwd_exctractor
     row_stationId = ('00000' + row[0].strip())[-5:]
     row_date = row[1][0:8]
     row_hour = row[1][8:10]

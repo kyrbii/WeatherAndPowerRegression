@@ -2,16 +2,19 @@ import csv
 import json
 
 def startup(timecodes, shortpowers):
+    # bundle the data for each shortcode/powerssource of 2022 into one csv
     for shortpower in shortpowers:
+        # obsolete because I changed the command but I like it
         create_csv(shortpower)
         with open(f'./raw/{shortpower}/{shortpower}.csv', 'w', newline='') as csv_file:
             writethis = csv.writer(csv_file, delimiter=',', quotechar='\'')
             # write the header
             writethis.writerow(['time','value'])
             # iterate, so that all the timecode_files are used
+            # I just realize I could have iterated in the write json 2 csv function, but it works regardless. Never change a running system
         for timecode in timecodes:
+            # write it all into the json
             write_json_2_csv(shortpower, timecode)
-    pass
 
 def create_csv(shortpower):
     # create a csv file
@@ -20,47 +23,16 @@ def create_csv(shortpower):
 
 def write_json_2_csv(shortpower, timecode):
     json_file = open(f'./raw/{shortpower}/{timecode}.json', 'r')
-
+    # modify the json, so that it can be interpreted, as a python file
     json_data = json.loads(json_file.readline().replace("'",'"'))
     json_series = json_data['series']
-
+    # append to the csv file
     with open(f'./raw/{shortpower}/{shortpower}.csv', 'a', newline='') as csv_file:
         writethis = csv.writer(csv_file, delimiter=',', quotechar='\'')
+        # write all rows in one command just by writing an iterable array :)
         writethis.writerows(json_series)
     
     json_file.close()
-    # with open() as csv_file:
-       #  pass
-    pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
@@ -133,7 +105,7 @@ if __name__ == '__main__':
         1671404400000,
         1672009200000
     ]
-
+    # testing snippet
     # timecodes = [
     #     1640559600000]
     # shortpowers = [

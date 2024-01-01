@@ -2,30 +2,35 @@ import requests
 import os
 
 def startup(time_codes):
+    # important for the request function - like the cURL
     headers = {
         'Accept': 'application/json, text/plain, */*',
     }
     # startDate = '20220101' alias
     # endDate = '20221231' alias
-    # Sommerzeit (GMT+2) 2022 in Deutschland Von Sonntag, 27. März 02:00 Uhr bis Sonntag, 30. Oktober  03:00 Uhr
-    # https://www.smard.de/app/chart_data/1225/DE/1225_DE_hour_1534716000000.json
-    #
+    # example call:   https://www.smard.de/app/chart_data/1225/DE/1225_DE_hour_1534716000000.json
     short_power = ['4068','4071','4067','4069','1225','1223','1226','1224','1227','4066','4070','1228','410']
     
     for short_code in short_power:
+        # seperate dirs for every short code, to have a structure
         os.makedirs(f'./raw/{short_code}', mode=0o777, exist_ok=True)
         for timecode in time_codes:
+            # every timecode has its own json file
             request_and_save_json(headers, timecode, short_code)
 
 def request_and_save_json(headers, time_code, short_code):
+    # to know what the program works on 
     print(f'saving {short_code} -> {time_code}')
+    # equivalent to the cURL command
     response = requests.get(f'https://www.smard.de/app/chart_data/{short_code}/DE/{short_code}_DE_hour_{time_code}.json', headers=headers)
+    # make a json and write the content of the fetched json file into it
     file2create = open(f'./raw/{short_code}/{time_code}.json', 'w')
     file2create.write(f'{response.json()}')
     file2create.close()
     print(f'saved and closed {short_code} -> {time_code}')
 
 if __name__ == '__main__':
+    # defined the time codes here. forgot one on the first try :)
     time_codes = [
         1640559600000, 
         1641164400000,
@@ -82,5 +87,3 @@ if __name__ == '__main__':
         1672009200000
     ]
     startup(time_codes)
-
-
