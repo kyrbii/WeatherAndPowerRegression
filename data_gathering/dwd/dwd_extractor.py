@@ -5,43 +5,94 @@ import os
 import re
 from zipfile import ZipFile, Path
 
+# FTP server details and data directory paths
 DWD_FTP_SERVER = 'opendata.dwd.de'
 DWD_DATA_BASE_DIR = '/climate_environment/CDC/observations_germany/climate/hourly/'
 
+# Regular expressions for file and station list patterns
 DWD_HISTORY_FILENAME_PATTERN = '^.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_([0-9]{8})_([0-9]{8})_hist\.zip)'
 DWD_RECENT_FILENAME_PATTERN = '^.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_akt\.zip)'
 DWD_STATION_LIST_PATTERN = '^(\d{5})\s+(\d{8})\s+(\d{8})\s+(-?\d{1,4})\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(.*?)\s+([A-ZÄÖÜa-zäöü-]+)\s+$'
 
+# Paths for storing historical and recent data
 HISTORY_PATH = 'historical'
 RECENT_PATH = 'recent'
 RAW_DATA_PATH = '/raw/zip/'
 TXT_DATA_PATH = '/raw/txt/'
 
+# data type to data dir mapping (see dwd ftp server structure https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/hourly/)
+DATA_DIRS = { 'TU': 'air_temperature',
+              'N' : 'cloudiness',
+              'RR': 'precipitation',
+              'SD': 'sun',
+              'VV': 'visibility',
+              'FF': 'wind' }
+
+
+
 def getRelevantHistoryFilename(filenames, station, dataType, startDate):
+    """
+    Get the relevant history filen probably containing the data for the provided criteria.
+
+    Args:
+    - filenames: List of filenames to search.
+    - station: Station code.
+    - dataType: Type of data.
+    - startDate: Start date for filtering.
+
+    Returns:
+    - Relevant filename or an empty string if not found.
+    """
+
     stationFile = ''
+    # iterate through all given filenames
     for filename in filenames:
         match = re.match(DWD_HISTORY_FILENAME_PATTERN, filename)
         if match:
-            # group(2) -> typ (TU)
-            # group(3) -> station
-            # group(4) -> s
-            # group(5) -> e
-            # s <= startDate    und    e >= endDate -> nur historie
-            # s <= startDate    und    e < endDate -> historie + aktuell
-            # e <= startDate -> nicht historie
+            # group(2) -> typ (TU), group(3) -> station, group(4) -> startdate, group(5) -> enddate
+            # file is relevant, if enddate of file after startDate
             if (match.group(2) == dataType) and (match.group(3) == station) and (match.group(5) > startDate):
                 stationFile = filename
+
     return stationFile
 
 
 
 def getFilteredRecentFilename(filenames, filename, station, dataType):
+    """
+    Get the relevant history filen probably containing the data for the provided criteria.
+
+    Args:
+    - filenames: List of filenames to search.
+    - station: Station code.
+    - dataType: Type of data.
+    - startDate: Start date for filtering.
+
+    Returns:
+    - Relevant filename or an empty string if not found.
+    """
+
     match = re.match(DWD_RECENT_FILENAME_PATTERN, filename)
     if match:
         if (match.group(2) == dataType) and (match.group(3) == station):
             filenames.append(match.group(1))
 
-def getRecentFilename(ftp, station, dataDir, dataType):
+
+
+def getRecentFilename(ftp, station, dataDir, dataType):#
+    """
+    Get the relevant history filen probably containing the data for the provided criteria.
+
+    Args:
+    - filenames: List of filenames to search.
+    - station: Station code.
+    - dataType: Type of data.
+    - startDate: Start date for filtering.
+
+    Returns:
+    - Relevant filename or an empty string if not found.
+    """
+    
     ftp.cwd(DWD_DATA_BASE_DIR)
     ftp.cwd(dataDir)
     ftp.cwd(RECENT_PATH)
@@ -54,11 +105,25 @@ def getRecentFilename(ftp, station, dataDir, dataType):
 
 
 
-def getStationFiles(ftp, startDate, endDate, station, dataDir, dataType):
+def getStationFiles(ftp, startDate, endDate, station, dataType):
+    """
+    Get recent and history filenames from server covering the given date range
+
+    Args:
+    - ftp: an already open ftp connection
+    - startDate: Start date for data extraction.
+    - endDate: End date for data extraction.
+    - station: Station code.
+    - dataType: Type of data.
+
+    Returns:
+    - list of station/datatype/timerange-realted files on dwd data server to retrieve
+    """
+
     # go to the base dir for hourly observation data for germany
     ftp.cwd(DWD_DATA_BASE_DIR)
-    # we extract data for air_temperature <--- this can vary depending on data type
-    ftp.cwd(dataDir)
+    # change to the according data directory
+    ftp.cwd(DATA_DIRS[dataType])
 
     # first check historical data
     ftp.cwd(HISTORY_PATH)
@@ -68,40 +133,66 @@ def getStationFiles(ftp, startDate, endDate, station, dataDir, dataType):
     # get relevant ones
     historyFile = getRelevantHistoryFilename(filenames, station, dataType, startDate)
     stationFiles = []
-    # do we have to check recent data?
-    if (len(historyFile) > 0):
+    
+    # maybe history is not enough or no history at all?
+    if (len(historyFile) > 0): 
         match = re.match(DWD_HISTORY_FILENAME_PATTERN, historyFile)
         stationFiles.append(match.group(1))
-        if match.group(5) < endDate:
-            fileName = getRecentFilename(ftp, station, dataDir, dataType)
+        if match.group(5) < endDate: # ok, we eventually have to check recent data in addition?
+            fileName = getRecentFilename(ftp, station, DATA_DIRS[dataType], dataType)
             if len(fileName) > 0:
                 stationFiles.append(fileName)
-    else:
-        fileName = getRecentFilename(ftp, station, dataDir, dataType)
+    else: # or as the only source
+        fileName = getRecentFilename(ftp, station, DATA_DIRS[dataType], dataType)
         if len(fileName) > 0:
             stationFiles.append(fileName)
+
     return stationFiles
 
 
 
 def downloadZipFile(ftp, dataDir, stationFiles, targetFileBase):
+    """
+    retrieve all the provided files from the dwd weather server and store them (as zip files) locally
+
+    Args:
+    - ftp: an already open ftp connection
+    - dataDir, directory on ftp server where the data to retrieve lives
+    - stationFiles: List of files to retrieve
+    - targetFileBase: Base directory for storing files.
+    """
+
+    # do it for all filenames
     for stationFile in stationFiles:
         ftp.cwd(DWD_DATA_BASE_DIR)
         ftp.cwd(dataDir)
-        if stationFile[-7:] == 'akt.zip':
+        if stationFile[-7:] == 'akt.zip': # historical or recent?
             ftp.cwd(RECENT_PATH)
         else:
             ftp.cwd(HISTORY_PATH)
         try:
-            os.makedirs(targetFileBase + RAW_DATA_PATH)
+            # eventually make target directories (if needed)
+            os.makedirs(targetFileBase + RAW_DATA_PATH) 
         except FileExistsError:
-            pass
+            pass # ignore file already exists error
+        # no do a binary transfer
         with open(targetFileBase + RAW_DATA_PATH + stationFile, 'wb') as downloadFile:
             ftp.retrbinary(f"RETR {stationFile}", downloadFile.write)
 
 
 
 def extractStationData(stationFiles, targetFileBase, station, startDate, endDate, mapFunction):
+    """
+    retrieve all the provided files from the dwd weather server and store them (as zip files) locally
+
+    Args:
+    - ftp: an already open ftp connection
+    - dataDir, directory on ftp server where the data to retrieve lives
+    - stationFiles: List of files to retrieve
+    - targetFileBase: Base directory for storing files.
+    Returns:
+    - stationData:
+    """
     stationData = []
     tailDateHour = '0000000000'
     for stationFile in stationFiles:
@@ -123,17 +214,37 @@ def extractStationData(stationFiles, targetFileBase, station, startDate, endDate
     return stationData
 
 
+
 def writeStationData(stationData, targetFileBase, station, dataType, columnNames):
+    """
+    Write station data to a CSV file.
+
+    Args:
+    - stationData: List of tuples containing station data.
+    - targetFileBase: Base directory for storing files.
+    - station: Station code.
+    - dataType: Type of data.
+    - columnNames: List of column names.
+    """
+
+    # eventually make target directories (if needed)
     try:
         os.makedirs(targetFileBase + TXT_DATA_PATH + station)
     except FileExistsError:
-        pass
+        pass # ignore file already exists error
+
+    # construct target file name
     filename = targetFileBase + TXT_DATA_PATH + station + '/' + station + '_' + dataType + '.csv'
+
+    # delete possible existing target file
     try:
         os.remove(filename)
     except:
-        pass
-    with open(filename, 'w') as csvFile:
+        pass # ignore file does not exist error
+
+    # write data to csv file
+    # the structure is station, data and hour as the first three columns, the provided columns afterwards
+    with open(filename, 'w', encoding='cp1252') as csvFile:
         csvWriter = csv.writer(csvFile, delimiter=',')
         headNames = ['station', 'date', 'hour']
         headNames.extend(columnNames)
@@ -152,29 +263,56 @@ def writeStationData(stationData, targetFileBase, station, dataType, columnNames
                         
 
 
-def extractZipFile(ftp, startDate, endDate, station, dataDir, dataType, targetFileBase, mapFunction, columnNames):
-    stationFiles = getStationFiles(ftp, startDate, endDate, station, dataDir, dataType)
-    if (len(stationFiles) > 0):
-        downloadZipFile(ftp, dataDir, stationFiles, targetFileBase)
+def extractZipFile(ftp, startDate, endDate, station, dataType, targetFileBase, mapFunction, columnNames):
+    """
+    Get relevant zip files from ftp server, extract them and write contained data file
+
+    Args:
+    - ftp: an already open ftp connection
+    - startDate: Start date for data extraction.
+    - endDate: End date for data extraction.
+    - station: Station code.
+    - dataType: Type of data.
+    - targetFileBase: Base directory for storing files.
+    - mapFunction: Function for mapping and processing data.
+    - columnNames: List of column names.
+    """
+
+    stationFiles = getStationFiles(ftp, startDate, endDate, station, DATA_DIRS[dataType], dataType)
+    if (len(stationFiles) > 0): # there are data files, get them all and process them
+        downloadZipFile(ftp, DATA_DIRS[dataType], stationFiles, targetFileBase)
         stationData = extractStationData(stationFiles, targetFileBase, station, startDate, endDate, mapFunction)
         writeStationData(stationData, targetFileBase, station, dataType, columnNames)
 
 
 
-def getStations(ftp, dataDir, dataType, targetFileBase):
-    listOfAllStations = []
-    data = BytesIO()
+def getStations(ftp, dataType, targetFileBase):
+    """
+    get the list of stations reporting data for the given dataType.
+
+    Args:
+    - ftp: an already open ftp connection
+    - dataType: Type of data.
+    - targetFileBase: Base directory for storing files.
+    """
+    
+    listOfAllStations = [] # resulting list
+
+    data = BytesIO() # buffer for binary io
+
     # first historical
-    stationListFile = DWD_DATA_BASE_DIR + dataDir + '/' + HISTORY_PATH + '/' + dataType + '_Stundenwerte_Beschreibung_Stationen.txt'
+    stationListFile = DWD_DATA_BASE_DIR +  DATA_DIRS[dataType] + '/' + HISTORY_PATH + '/' + dataType + '_Stundenwerte_Beschreibung_Stationen.txt'
     try:
         ftp.retrbinary(f'RETR {stationListFile}', data.write)
     except:   
-        stationListFile = DWD_DATA_BASE_DIR + dataDir + '/' + RECENT_PATH + '/' + dataType + '_Stundenwerte_Beschreibung_Stationen.txt'
+        # no historical stations, so try if there is a current one
+        stationListFile = DWD_DATA_BASE_DIR +  DATA_DIRS[dataType] + '/' + RECENT_PATH + '/' + dataType + '_Stundenwerte_Beschreibung_Stationen.txt'
         try:
-            print("reading recent")
             ftp.retrbinary(f'RETR {stationListFile}', data.write)
         except:
             data = None
+    # if there are stations (historical or recent), write them to the target file base
+    # with their data: station-id, date of first probe, date of last probe, altitude, logitude, lattitude, name and federal state
     if data:
         print(f"writing to {targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv'}")
         with open(targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv', 'w', encoding='cp1252') as csvFile:
@@ -184,7 +322,7 @@ def getStations(ftp, dataDir, dataType, targetFileBase):
             data_as_array = data_as_str.split('\r\n')
             line_cnt = 0
             for data_line in data_as_array:
-                if line_cnt > 2:
+                if line_cnt > 2: # skip header of source txt file
                     if (len(data_line) > 0):
                         match = re.match(DWD_STATION_LIST_PATTERN, data_line)
                         listOfAllStations.append(match.group(1))
@@ -195,6 +333,16 @@ def getStations(ftp, dataDir, dataType, targetFileBase):
 
 
 def startup(dataType, dataDir, mapFunction, columnNames):
+    """
+    connect to ftp dwd server, get list of all stations and iterate through stations to retreive
+    all relevant data files
+
+    Args:
+    - dataType: Type of data.
+    - dataDir: Data directory on the FTP server.
+    - mapFunction: Function for mapping and processing data.
+    - columnNames: List of column names.
+    """
 
     startDate = '20220101'
     endDate = '20221231'
@@ -202,16 +350,21 @@ def startup(dataType, dataDir, mapFunction, columnNames):
     # connect to dwd ftp server
     ftp = FTP(DWD_FTP_SERVER)
     ftp.login()
+
+    # where to store the data locally
     targetFileBase = '.'
 
-    stationList = getStations(ftp, dataDir, dataType, targetFileBase)
+    # get all stations for the data type and iterate over them
+    stationList = getStations(ftp, dataType, targetFileBase)
     for station in stationList:
         print(f"working for {station} on {dataType}")
-        extractZipFile(ftp, startDate, endDate, station, dataDir, dataType, targetFileBase, mapFunction, columnNames)
+        # get data and extract it
+        extractZipFile(ftp, startDate, endDate, station, dataType, targetFileBase, mapFunction, columnNames)
 
+    # clean up
     ftp.close()
 
 
-if __name__ == '__main__':
-    startup()
 
+if __name__ == '__main__':
+    print("INFO: this file is intended to be used as framework for dwd data processing only - use function startup")
