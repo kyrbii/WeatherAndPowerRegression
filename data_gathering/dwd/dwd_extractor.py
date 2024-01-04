@@ -9,10 +9,10 @@ from zipfile import ZipFile, Path
 DWD_FTP_SERVER = 'opendata.dwd.de'
 DWD_DATA_BASE_DIR = '/climate_environment/CDC/observations_germany/climate/hourly/'
 
-# Regular expressions for file and station list patterns
-DWD_HISTORY_FILENAME_PATTERN = "^.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_([0-9]{8})_([0-9]{8})_hist\.zip)"
-DWD_RECENT_FILENAME_PATTERN = ".*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_akt\.zip)"
-DWD_STATION_LIST_PATTERN = "^(\d{5})\s+(\d{8})\s+(\d{8})\s+(-?\d{1,4})\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(.*?)\s+([A-ZÄÖÜa-zäöü-]+)\s+$"
+# Regular expressions for file and station list patterns (raw strings because of \ character in regex)
+DWD_HISTORY_FILENAME_PATTERN = r'^.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_([0-9]{8})_([0-9]{8})_hist\.zip)'
+DWD_RECENT_FILENAME_PATTERN = r'.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_akt\.zip)'
+DWD_STATION_LIST_PATTERN = r'^(\d{5})\s+(\d{8})\s+(\d{8})\s+(-?\d{1,4})\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(.*?)\s+([A-ZÄÖÜa-zäöü-]+)\s+$'
 
 # Paths for storing historical and recent data
 HISTORY_PATH = 'historical'
@@ -297,6 +297,12 @@ def getStations(ftp, dataType, targetFileBase):
     - targetFileBase: Base directory for storing files.
     """
     
+    # eventually make target directories (if needed)
+    try:
+        os.makedirs(targetFileBase + TXT_DATA_PATH)
+    except FileExistsError:
+        pass # ignore file already exists error
+
     listOfAllStations = [] # resulting list
 
     data = BytesIO() # buffer for binary io
