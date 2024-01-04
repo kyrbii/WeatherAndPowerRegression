@@ -10,9 +10,9 @@ DWD_FTP_SERVER = 'opendata.dwd.de'
 DWD_DATA_BASE_DIR = '/climate_environment/CDC/observations_germany/climate/hourly/'
 
 # Regular expressions for file and station list patterns
-DWD_HISTORY_FILENAME_PATTERN = '^.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_([0-9]{8})_([0-9]{8})_hist\.zip)'
-DWD_RECENT_FILENAME_PATTERN = '^.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_akt\.zip)'
-DWD_STATION_LIST_PATTERN = '^(\d{5})\s+(\d{8})\s+(\d{8})\s+(-?\d{1,4})\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(.*?)\s+([A-ZÄÖÜa-zäöü-]+)\s+$'
+DWD_HISTORY_FILENAME_PATTERN = "^.*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_([0-9]{8})_([0-9]{8})_hist\.zip)"
+DWD_RECENT_FILENAME_PATTERN = ".*(stundenwerte_([A-Z]{1,2})_([0-9]{5})_akt\.zip)"
+DWD_STATION_LIST_PATTERN = "^(\d{5})\s+(\d{8})\s+(\d{8})\s+(-?\d{1,4})\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(.*?)\s+([A-ZÄÖÜa-zäöü-]+)\s+$"
 
 # Paths for storing historical and recent data
 HISTORY_PATH = 'historical'
@@ -73,9 +73,8 @@ def getFilteredRecentFilename(filenames, filename, station, dataType):
     """
 
     match = re.match(DWD_RECENT_FILENAME_PATTERN, filename)
-    if match:
-        if (match.group(2) == dataType) and (match.group(3) == station):
-            filenames.append(match.group(1))
+    if match and ((match.group(2) == dataType) and (match.group(3) == station)):
+        filenames.append(match.group(1))
 
 
 
@@ -166,7 +165,7 @@ def downloadZipFile(ftp, dataDir, stationFiles, targetFileBase):
     for stationFile in stationFiles:
         ftp.cwd(DWD_DATA_BASE_DIR)
         ftp.cwd(dataDir)
-        if stationFile[-7:] == 'akt.zip': # historical or recent?
+        if stationFile.endswith('akt.zip'): # historical or recent?
             ftp.cwd(RECENT_PATH)
         else:
             ftp.cwd(HISTORY_PATH)
@@ -193,7 +192,9 @@ def extractStationData(stationFiles, targetFileBase, station, startDate, endDate
     Returns:
     - stationData:
     """
+
     stationData = []
+    
     tailDateHour = '0000000000'
     for stationFile in stationFiles:
         with ZipFile(targetFileBase + RAW_DATA_PATH + stationFile) as zip_file:
@@ -239,7 +240,7 @@ def writeStationData(stationData, targetFileBase, station, dataType, columnNames
     # delete possible existing target file
     try:
         os.remove(filename)
-    except:
+    except FileNotFoundError:
         pass # ignore file does not exist error
 
     # write data to csv file
@@ -278,7 +279,7 @@ def extractZipFile(ftp, startDate, endDate, station, dataType, targetFileBase, m
     - columnNames: List of column names.
     """
 
-    stationFiles = getStationFiles(ftp, startDate, endDate, station, DATA_DIRS[dataType], dataType)
+    stationFiles = getStationFiles(ftp, startDate, endDate, station, dataType)
     if (len(stationFiles) > 0): # there are data files, get them all and process them
         downloadZipFile(ftp, DATA_DIRS[dataType], stationFiles, targetFileBase)
         stationData = extractStationData(stationFiles, targetFileBase, station, startDate, endDate, mapFunction)
@@ -304,12 +305,12 @@ def getStations(ftp, dataType, targetFileBase):
     stationListFile = DWD_DATA_BASE_DIR +  DATA_DIRS[dataType] + '/' + HISTORY_PATH + '/' + dataType + '_Stundenwerte_Beschreibung_Stationen.txt'
     try:
         ftp.retrbinary(f'RETR {stationListFile}', data.write)
-    except:   
+    except Exception:   
         # no historical stations, so try if there is a current one
         stationListFile = DWD_DATA_BASE_DIR +  DATA_DIRS[dataType] + '/' + RECENT_PATH + '/' + dataType + '_Stundenwerte_Beschreibung_Stationen.txt'
         try:
             ftp.retrbinary(f'RETR {stationListFile}', data.write)
-        except:
+        except Exception:
             data = None
     # if there are stations (historical or recent), write them to the target file base
     # with their data: station-id, date of first probe, date of last probe, altitude, logitude, lattitude, name and federal state
