@@ -245,7 +245,7 @@ def writeStationData(stationData, targetFileBase, station, dataType, columnNames
 
     # write data to csv file
     # the structure is station, data and hour as the first three columns, the provided columns afterwards
-    with open(filename, 'w', encoding='cp1252') as csvFile:
+    with open(filename, 'w', newline='', encoding='cp1252') as csvFile:
         csvWriter = csv.writer(csvFile, delimiter=',')
         headNames = ['station', 'date', 'hour']
         headNames.extend(columnNames)
@@ -322,7 +322,7 @@ def getStations(ftp, dataType, targetFileBase):
     # with their data: station-id, date of first probe, date of last probe, altitude, logitude, lattitude, name and federal state
     if data:
         print(f"writing to {targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv'}")
-        with open(targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv', 'w', encoding='cp1252') as csvFile:
+        with open(targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv', 'w', newline='', encoding='cp1252') as csvFile:
             csvWriter = csv.writer(csvFile, delimiter=',')
             csvWriter.writerow(['station','date_from','date_to','altitude','longitude','lattitude','name','state'])
             data_as_str = data.getvalue().decode('cp1252')
