@@ -12,7 +12,7 @@ CSV_FILE_PATTERN = r'^(\d{5})_(.*)\.csv$'  # file name of data file (see iterate
 # 
 SOURCE_DATA = { 'TU' : ['temperature', 'moisture'],
                 'N'  : ['cloudiness'],
-                # 'RR' : ['downfall_height', 'downfall_indicator', 'downfall_type'],
+                'RR' : ['downfall_height', 'downfall_indicator'],
                 'SD' : ['sunshine_duration'],
                 'VV' : ['visibility'],
                 'FF' : ['wind_speed', 'wind_direction'] }
@@ -60,9 +60,10 @@ def workOnSingleFile(resultData, dateList, stationList, attribs, stationDir, fil
             if first:
                 colIdx = 0
                 for headerCol in row:
-                    if (colIdx >= 3):
-                        headerIdxMap.append(attribs.index(headerCol))
-                    colIdx += 1
+                    if headerCol != "downfall_type":
+                        if (colIdx >= 3):
+                            headerIdxMap.append(attribs.index(headerCol))
+                        colIdx += 1
             else:
                 # station, date, hour are always the first three columns
                 currentStation = row[0]
@@ -91,11 +92,11 @@ def workOnAllFiles(resultData, baseDir, dateList, stationList, attribs):
         stationDir = baseDir + '/' + station
         files = os.listdir(stationDir)
         for file in files:
-            if file != f"{station}_RR.csv": # äh ohne rr
-                match = re.match(CSV_FILE_PATTERN, file)
-                if match:
-                    resultData = workOnSingleFile(resultData, dateList, stationList, attribs, stationDir, file, match.group(1), match.group(2))
-                cnt = cnt + 1
+            # if file != f"{station}_RR.csv": # äh ohne rr
+            match = re.match(CSV_FILE_PATTERN, file)
+            if match:
+                resultData = workOnSingleFile(resultData, dateList, stationList, attribs, stationDir, file, match.group(1), match.group(2))
+            cnt = cnt + 1
         cntStation += 1
     print(f"number of files: {cnt} for {cntStation} stations")
     return resultData

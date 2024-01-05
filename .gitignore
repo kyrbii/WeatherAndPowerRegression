@@ -5,5 +5,7 @@ data_gathering/dwd/test_mapping.py
 *.json
 *.csv
 !data_gathering/smard/power2022.csv
+!data_dwd_wo_RR.csv
+!completestations_data_dwd.csv
 data_gathering/smard/test.py
 data.txt
