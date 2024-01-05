@@ -25,6 +25,7 @@ The columns are named `XXXXX/YY-I` where
 ``I`` is the subtype of data
 
 _A list to specify the abbreviations and sub-types in form `YY-I`:_
+
 ```
 TU-0    air temperature in °C
 
@@ -48,3 +49,33 @@ FF-1    wind direction in degrees from north
 ```
 
 The file contains columns, where the station didn't measure a single piece of data. The columns were created for the sake of completeness of our data. Therefore for use in our project it likely has to be further curated!
+
+___
+
+### strip the_big_one.csv_
+In order to use the weather dataset for our classifier, we need to strip the data. At the moment in our ``the_big_one.csv`` file there are many columns of stations to which we didn't find any data (marked with -777)\
+Furthermore there are stations which didn't really collect data, but nontheless wrote it into their txt file. This could be confusing for us while testing and could influence the outcome. But this is an issue that we will face during programming and try to avoid data with value -999/-999.0
+
+First we try to strip the csv / write a different csv where we will have a little less data but it'll be more valuable for our goal!
+
+
+### stripping
+_First approach:_\
+Have a look and see which stations offer all of our data! Meaning we will only take the stations into account where we have all 6 csv files in our ``data_gathering/raw/txt/'stations'`` path!
+
+--> dwd_makecsv_fromcompletedata.py
+
+
+_Second approach:_\
+Only include station that include the following, currently more important data:
+```
+        to be changed
+
+N-Data              cloudiness
+
+VV-Data             visibility
+
+SD-Data             sunshine
+
+FF-Data             wind
+```

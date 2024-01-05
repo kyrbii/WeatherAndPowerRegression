@@ -159,7 +159,7 @@ def initResultData(dateList, stationList, attribs):
 
 
 def writeResultFile(resultFilename, resultData):
-    with open(resultFilename, 'w', encoding='cp1252') as csvFile:
+    with open(resultFilename, 'w', newline = '', encoding='cp1252') as csvFile:
         csvWriter = csv.writer(csvFile, delimiter=',')
         for dataLine in resultData:
             csvWriter.writerow(dataLine)
