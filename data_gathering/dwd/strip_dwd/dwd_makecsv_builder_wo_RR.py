@@ -2,7 +2,7 @@ import csv
 import datetime
 import os
 import re
-import dwd_makecsv_fromcompletedata
+import data_gathering.dwd.strip_dwd.dwd_makecsv_fromcompletedata as dwd_makecsv_fromcompletedata
 
 
 RAW_TEXT_FILES = '/raw/txt' # where the raw text files are (relative to the base directory)
