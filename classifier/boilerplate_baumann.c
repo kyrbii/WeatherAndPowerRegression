@@ -59,10 +59,7 @@ void copy_instance(int d, double src[d], double tgt[d]) {
     }
 }
 
-void split_train_test(int test, int n, int d,
-                      double full_x[n][d], const int full_y[n],
-                      double train_x[n-1][d], int train_y[n-1],
-                      double test_x[d], int* test_y) {
+void split_train_test(int test, int n, int d, double full_x[n][d], const int full_y[n], double train_x[n-1][d], int train_y[n-1], double test_x[d], int* test_y) {
     // these are identical until we hit the test item
     int i = 0; // index over full variables
     int j = 0; // index over train variables
