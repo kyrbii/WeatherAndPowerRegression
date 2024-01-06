@@ -9,3 +9,4 @@ data_gathering/dwd/test_mapping.py
 !completestations_data_dwd.csv
 data_gathering/smard/test.py
 data.txt
+*.png

@@ -319,7 +319,7 @@ def getStations(ftp, dataType, targetFileBase):
         except Exception:
             data = None
     # if there are stations (historical or recent), write them to the target file base
-    # with their data: station-id, date of first probe, date of last probe, altitude, logitude, lattitude, name and federal state
+    # with their data: station-id, date of first measured value, date of last measured value, altitude, logitude, lattitude, name and federal state
     if data:
         print(f"writing to {targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv'}")
         with open(targetFileBase + TXT_DATA_PATH + dataType + '_stations.csv', 'w', newline='', encoding='cp1252') as csvFile:
