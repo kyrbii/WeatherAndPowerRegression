@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <math.h>
 
+
 //define some colors for our outputs - make them stand out :)
 #define CNRM  "\x1B[0m"
 #define CRED  "\x1B[31m"
@@ -18,9 +19,10 @@
 //UNBEDINGT DIE KOMMENTARE PFLEGEN, EINIGE KOMMENTARE SAGEN SACHEN WIE NICHT FERTIG oder so, die wären bei der Abgabe ungünstig :)
 
 /*
-func iteriere durch alle Datensaetze durch und test/classify
+func iteriere durch alle Datensaetze durch und test/classify ##
 
-    func trainingsdatensatz erstellen -> Volles File - (minus) Testdatensatz
+    func trainingsdatensatz erstellen -> Volles File - (minus) Testdatensatz ##
+
     func classifier
 
         knn?
@@ -49,7 +51,7 @@ bool TEST_arg(int argc,char** argv) { //check for usefullness of the programm ca
     if (argc == 9) {
         return true;
     }else { 
-        printf("%sUse %s <n-rows> <p> <knn> <margin> <x-filename> <x-dimensions> <y-filename> <y-dimensions>\n\n"
+        printf("\n%sUse %s <n-rows> <p> <knn> <margin> <x-filename> <x-dimensions> <y-filename> <y-dimensions>\n\n"
                "<n-rows>\tbeing the number of lines/rows in both csv files (data-rows, i.e. wtithout header)\n"
                "<p>\t\tbeing the order of the minkowski distance (suggestion: 2)\n"
                "<knn>\t\tbeing the number of nearest neighbours to look at\n"
@@ -120,15 +122,83 @@ void PRINT_result(int correct_count, int n_rows, int margin) {
     printf("Out of %d data samples %d were classified as correctly with a margin of %d%%. That makes a ratio of %.6f", n_rows, correct_count, margin, (float)correct_count/(float)n_rows);
 }
 
+void PARTITION(int the_one_out, int n_rows, int dimensions_x, int dimensions_y, double cond_x[n_rows][dimensions_x], int cond_i_y[n_rows], double x[n_rows][dimensions_x], double exam_x[dimensions_x]) {
+    //printf("I AM IN ITERATION %d\n", the_one_out);
+    size_t cond_row = 0;
+    for (size_t row = 0; row < n_rows; row++) {
+        if (row == the_one_out) {
+            for (size_t dim = 0; dim < dimensions_x; dim++) {
+                exam_x[dim] = x[the_one_out][dim];
+            }
+        }else {
+            cond_i_y[cond_row] = row;
+            for (size_t dim = 0; dim < dimensions_x; dim++) {
+                cond_x[cond_row][dim] = x[row][dim];
+            }
+            cond_row++;
+        }
+    }
+    /*
+    cond_row = 0;
+    for (size_t row = 0; row < n_rows; row++) {
+        if (row == the_one_out) {
+        }else {
+            
+            cond_row++;
+        }
+    }
+    */
+}
+
+double MINKOWSKI_distance(int p_mink, int dimension, double data_arr1[dimension], double data_arr2[dimension]) {
+    double distance = 0;
+    for (size_t dim = 0; dim < dimension; dim++) {
+        distance+= (double)pow(fabs((double)(data_arr1[dim] - data_arr2[dim])), p_mink);
+    }
+    return (double)pow((double)distance, (1/p_mink));   
+}
+
+void CLASSIFY_KNN(int n_rows, int dimensions_x, int dimensions_y, int p_minkowski_distance, int k_neighbours, int margin, int* exam_i_y) {
+    if (k_neighbours == 1) {
+        //nearest neighbour
+        for (size_t dp = 0; dp < n_rows; dp++) {
+            /* code */
+        }
+        
+    }
+    //kneares neighbour implementieren
+    //subject to change immediately
+    *exam_i_y = -999;
+}
+
+bool VERIFY_KNN() {
+
+}
+
 int KNN_algorithm(int n_rows, int p_minkowski_distance, int k_neighbours, int dimensions_x, int dimensions_y, int margin, double x[n_rows][dimensions_x], double y[n_rows][dimensions_y]) {
-    double training_x[n_rows-1][dimensions_x];
-    double training_y[n_rows-1][dimensions_y];
-    double testing_x[dimensions_x];
-    double testing_y[dimensions_y];
-    return;
+    double cond_x[n_rows-1][dimensions_x];
+    int cond_index_y[n_rows-1];
+    double exam_x[dimensions_x];
+    int exam_index_y;
+    int prop_classified = 0;
+    
+    for (size_t dp = 0; dp < n_rows; dp++) {
+        PARTITION(dp, n_rows, dimensions_x, dimensions_y, cond_x, cond_index_y, x, exam_x);
+        //PRINTER(n_rows, dimensions_x, cond_x);
+        CLASSIFY_KNN(n_rows-1, dimensions_x, dimensions_y, p_minkowski_distance, k_neighbours, margin, &exam_index_y);
+        //ALLES implementieren!!
+        if(VERIFY_KNN()) {
+            prop_classified++;
+        }
+
+    }
+    //printf("ICH KOMM HIER AN!\n");
+
+    return prop_classified;
 }
 
 int main(int argc, char* argv[]) {    //arc: argument count   argv: argument vector
+    srand(1);
     int n_rows, p_minkowski_distance, k_neighbours, dimensions_x, dimensions_y, margin;
     char *filename_x, *filename_y;
     
@@ -178,4 +248,20 @@ func Fehlerueberpruefung in der Eingabe
 
 ## func csv-ausgeben fuer testen
 
+
+int file[2][2]
+file = file[0]
+file[0] = file[0][0]
+
+file        0x00000100
+0x00000100 - file[0] 0xf0000010
+0x00000164 - file[1] 0xf0000018
+0xf0000010 - file[0][0] 56
+0xf0000014 - file[0][1] 77
+
+
+int *array == array[]
+int array[][2]; // 0x00000243542
+array[0][0]
+array[2][3]
 */
