@@ -5,9 +5,9 @@
 #include <stdbool.h>
 #include <math.h>
 
+
+
 /*
-
-
 func csv-reader bauen -> überlegen, machen wir die ganze csv komplett, oder in Stuecken(Haelfte oder so), weil ultra riesig
 
 
@@ -42,8 +42,9 @@ func Fehlerueberpruefung in der Eingabe
 
 
 func main
-
 */
+
+
 
 int main(int argc, char const* argv[]) {    //arc: argument count   argv: argument vector
     /* code */

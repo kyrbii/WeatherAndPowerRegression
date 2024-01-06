@@ -5,7 +5,7 @@ import re
 import data_gathering.dwd.strip_dwd.dwd_makecsv_fromcompletedata as dwd_makecsv_fromcompletedata
 
 
-RAW_TEXT_FILES = '/raw/txt' # where the raw text files are (relative to the base directory)
+RAW_TEXT_FILES = './../raw/txt' # where the raw text files are (relative to strip_dwd directory)
 
 CSV_FILE_PATTERN = r'^(\d{5})_(.*)\.csv$'  # file name of data file (see iterate_weatherdata.py and dwd_extractor.py)
 
@@ -187,6 +187,6 @@ if __name__ == '__main__':
     resultData = initResultData(dateList, stationList, attribs)
     resultData = workOnAllFiles(resultData, baseDir, dateList, stationList, attribs)
     print("writing result file")
-    writeResultFile('./data_dwd_wo_RR.csv', resultData)
+    writeResultFile('./dwd_csvs/data_dwd_wo_RR.csv', resultData)
     # writeResultFile('./the_big_one.csv', resultData)
     print("written")

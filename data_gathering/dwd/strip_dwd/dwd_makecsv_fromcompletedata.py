@@ -29,7 +29,7 @@ def search_complete_stations(path, datatype):
         
 
 def startup():
-    path = "./raw/txt"
+    path = "./../raw/txt"
     datatype = [
         "TU",
         "N",
