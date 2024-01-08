@@ -34,6 +34,29 @@ func iteriere durch alle Datensaetze durch und test/classify ##
 func main
 */
 
+/*
+    PROBLEM:
+    What do we do, if the date (data) is -999 or -777?
+
+    This happens, when either the stations didn't gather any data and wrote -999 into their file or we didn't get
+    the data from the station because of missing rows in files or because of no files (-777)
+
+    IDEAS:
+
+    1.  We leave it like it is and hope that the most similar value does also include a missing date! -- Not a really error proof method
+
+    2.  We replace it with a specified value (0 or 100 or 50 or something similar) -- This should be different for every type of data because
+        of the different unit!
+
+    3.  We replace it with a avg value for each coplumn, that is created by cumulative addition of valid values -- In winter there is a different mean
+        temperature as in summer so this is a bad estimate for both times
+
+    4.  We replace it with an avg value for each month i.e. for each of the 12 periods that we divide the full year in. That could make the division
+        more context sensitive -- but will nevertheless distort the cleanness of the data.
+        -> maybe replace them all the way in the beginning, in the x array so that every function has the supplemented valuse?
+
+*/
+
 
 void ASSIGN_arg(char** argv, int* n, int* p, int* k, int* d_x, int* d_y, int* margin, char** f_x, char** f_y) {    //assigns the arguments given in the program call to the variables created in main
     *n = atoi(argv[1]);
@@ -105,11 +128,12 @@ int CSV_reader(char* filename, int n_rows, int dimensions, double data[n_rows][d
         }
     }
     fclose(csv_file);
+    
     return n_rows;
 }
 
 void PRINTER(int n_rows, int dimensions, double data[n_rows][dimensions]){
-    for (int i = 0; i < 1; i++) {   //watch out for the number of rows you print out. (psst ... 8670 are too much for the time you'd like to spend for this operation:)
+    for (int i = 0; i < 12; i++) {   //watch out for the number of rows you print out. (psst ... 8670 are too much for the time you'd like to spend for this operation:)
         for (int j = 0; j < dimensions; j++) {
             printf("%lf, ", data[i][j]);  
         }
@@ -122,7 +146,7 @@ void PRINT_result(int correct_count, int n_rows, int margin) {
 }
 
 void PARTITION(int the_one_out, int n_rows, int dimensions_x, int dimensions_y, double cond_x[n_rows][dimensions_x], int cond_i_y[n_rows], double x[n_rows][dimensions_x], double exam_x[dimensions_x]) {
-    printf("I AM IN ITERATION %d\n", the_one_out);
+    //printf("I AM IN ITERATION %d\n", the_one_out);
     size_t cond_row = 0;
     for (size_t row = 0; row < n_rows; row++) {
         if (row == the_one_out) {
@@ -148,34 +172,62 @@ void PARTITION(int the_one_out, int n_rows, int dimensions_x, int dimensions_y, 
     }
     */
 }
+void MISSINGVALUES_partition_avg(int partions, int n_rows, int dimensions_x, double x[n_rows][dimensions_x], double partitioned_average_x[partions][dimensions_x]) {
+    int part_length = n_rows / partions;
+    ERROR_printnexit(((n_rows % partions) == 0), "Couldn't part the data into equal integer-like parts. Please change the number of partitions or turn off the MISSINGVALUE function\n", "Data split into equal parts\n");
+    size_t part_cnt = 1;
+    double data_to_divide_cnt = 0;
+    
+    for (size_t dim = 0; dim < dimensions_x; dim++) {
+        part_cnt = 1;
+        data_to_divide_cnt = 0;
+        for (size_t row = 0; row < n_rows; row++) {
+            
+            if ((row >= (part_length * (part_cnt - 1))) && (row < (part_length * part_cnt))) {
+                if((x[row][dim]!= -777) && (x[row][dim]!= -999)) {
+                    partitioned_average_x[part_cnt-1][dim] += x[row][dim];
+                    data_to_divide_cnt++;
+                }
+            }else {
+                //ERROR_printnexit((data_to_divide_cnt != 0), "ERROR: division by zero -> problem in MISSING_parition_avg() function!\n", "Passed zero-test succesfully\n");
+                //printf("dimension %d in row %d", dim, row);
+                if ((data_to_divide_cnt != 0))
+                {
+                    partitioned_average_x[part_cnt - 1][dim] = (double)(partitioned_average_x[part_cnt - 1][dim] / (double)data_to_divide_cnt);
+                } else {
+                    partitioned_average_x[part_cnt - 1][dim] = 0;
+                }
+                part_cnt++;
+                data_to_divide_cnt = 0;
+            }
+        }   
+    }
+    // There are negative values in this array (weird?)   
+    //please check why this happens
+}
+
+void MISSINGVALUES(int n_rows, int dimensions_x, double x[n_rows][dimensions_x]) {
+    int partitions = 12;
+    double partitioned_average_x[partitions][dimensions_x];
+    //initialize array with zero for later adding operations
+    for (size_t i = 0; i < partitions; i++) {
+        for (size_t j = 0; j < dimensions_x; j++) {
+            partitioned_average_x[i][j] = 0;
+        }
+    }
+    MISSINGVALUES_partition_avg(partitions, n_rows, dimensions_x, x, partitioned_average_x);
+    //
+    PRINTER(partitions, dimensions_x, partitioned_average_x);
+    //MISSINGVALUES_Replace();
+}
 
 double MINKOWSKI_distance(int p_mink, int dimension, double data_arr1[dimension], double data_arr2[dimension]) {
-    /*
-    PROBLEM:
-    What do we do, if the date (data) is -999 or -777?
-
-    This happens, when either the stations didn't gather any data and wrote -999 into their file or we didn't get
-    the data from the station because of missing rows in files or because of no files (-777)
-
-    IDEAS:
-
-    1.  We leave it like it is and hope that the most similar value does also include a missing date! -- Not a really error proof method
-
-    2.  We replace it with a specified value (0 or 100 or 50 or something similar) -- This should be different for every type of data because
-        of the different unit!
-
-    3.  We replace it with a avg value for each coplumn, that is created by cumulative addition of valid values -- In winter there is a different mean
-        temperature as in summer so this is a bad estimate for both times
-
-    4.  We replace it with an avg value for each month i.e. for each of the 12 periods that we divide the full year in. That could make the division
-        more context sensitive -- but will nevertheless distort the cleanness of the data. 
-
-    */
+    
     double distance = 0;
     for (size_t dim = 0; dim < dimension; dim++) {
         distance+= (double)pow(fabs((double)(data_arr1[dim] - data_arr2[dim])), p_mink);
     }
-    return (double)pow((double)distance, (1/p_mink));   
+    return (double)pow((double)distance, (1/p_mink));
 }
 
 void CLASSIFY_KNN(int n_rows, int dimensions_x, int dimensions_y, int p_minkowski_distance, int k_neighbours, int margin, int* exam_i_y) {
@@ -236,12 +288,23 @@ int main(int argc, char* argv[]) {    //arc: argument count   argv: argument vec
     ERROR_printnexit((x_rows_temp = CSV_reader(filename_x, n_rows, dimensions_x, x)) == (y_rows_temp = CSV_reader(filename_y, n_rows, dimensions_y, y)), "Files can't be read with the same number of lines!\n", "Files passed the line-count test and are read in\n");
     n_rows = x_rows_temp;
     /*
+    WATCH OUT:
+
+    error in the saving process of the data! This means, that the doubles do not represent the data in the csv in detail, but have an error margin of
+    1*10^-13 ish.  Shit...
+    
+    
+    */
+    //PRINTER(1, dimensions_x, x);
+    MISSINGVALUES(n_rows, dimensions_x, x);
+    //PRINTER(1, dimensions_x, x);
+    /*
     printf("Zuerst x/wetter\n");
     PRINTER(n_rows, dimensions_x, x);
     printf("Und jetzt x/die Stromsachen\n");
     PRINTER(n_rows, dimensions_y, y);
     */
-    PRINT_result(KNN_algorithm(n_rows, p_minkowski_distance, k_neighbours, dimensions_x, dimensions_y, margin, x, y), n_rows, margin);
+    //PRINT_result(KNN_algorithm(n_rows, p_minkowski_distance, k_neighbours, dimensions_x, dimensions_y, margin, x, y), n_rows, margin);
     return 0;
 }
 /*
