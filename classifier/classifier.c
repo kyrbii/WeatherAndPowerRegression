@@ -15,7 +15,6 @@
 #define CMAG  "\x1B[35m"
 #define CCYN  "\x1B[36m"
 #define CWHT  "\x1B[37m"
-
 //UNBEDINGT DIE KOMMENTARE PFLEGEN, EINIGE KOMMENTARE SAGEN SACHEN WIE NICHT FERTIG oder so, die wären bei der Abgabe ungünstig :)
 
 /*
@@ -123,7 +122,7 @@ void PRINT_result(int correct_count, int n_rows, int margin) {
 }
 
 void PARTITION(int the_one_out, int n_rows, int dimensions_x, int dimensions_y, double cond_x[n_rows][dimensions_x], int cond_i_y[n_rows], double x[n_rows][dimensions_x], double exam_x[dimensions_x]) {
-    //printf("I AM IN ITERATION %d\n", the_one_out);
+    printf("I AM IN ITERATION %d\n", the_one_out);
     size_t cond_row = 0;
     for (size_t row = 0; row < n_rows; row++) {
         if (row == the_one_out) {
@@ -151,6 +150,27 @@ void PARTITION(int the_one_out, int n_rows, int dimensions_x, int dimensions_y, 
 }
 
 double MINKOWSKI_distance(int p_mink, int dimension, double data_arr1[dimension], double data_arr2[dimension]) {
+    /*
+    PROBLEM:
+    What do we do, if the date (data) is -999 or -777?
+
+    This happens, when either the stations didn't gather any data and wrote -999 into their file or we didn't get
+    the data from the station because of missing rows in files or because of no files (-777)
+
+    IDEAS:
+
+    1.  We leave it like it is and hope that the most similar value does also include a missing date! -- Not a really error proof method
+
+    2.  We replace it with a specified value (0 or 100 or 50 or something similar) -- This should be different for every type of data because
+        of the different unit!
+
+    3.  We replace it with a avg value for each coplumn, that is created by cumulative addition of valid values -- In winter there is a different mean
+        temperature as in summer so this is a bad estimate for both times
+
+    4.  We replace it with an avg value for each month i.e. for each of the 12 periods that we divide the full year in. That could make the division
+        more context sensitive -- but will nevertheless distort the cleanness of the data. 
+
+    */
     double distance = 0;
     for (size_t dim = 0; dim < dimension; dim++) {
         distance+= (double)pow(fabs((double)(data_arr1[dim] - data_arr2[dim])), p_mink);
@@ -241,7 +261,7 @@ func Fehlerueberpruefung in der Eingabe
     argv[6] = "y-filename"
     argv[7] = "dimensions of y" d(y) dimensions_y ##
 
-    .\classifier.exe 100 2 3 .\weather.csv 8000 .\power.csv 9000
+    .\classifier.exe 8760 2 1 5 .\..\data_gathering\dwd\dwd_csvs\data_dwd_wo_RR.csv 1415 .\..\smard\power2022.csv 15 
 
 
 ## func csv-reader bauen -> überlegen, machen wir die ganze csv komplett, oder in Stuecken(Haelfte oder so), weil ultra riesig
