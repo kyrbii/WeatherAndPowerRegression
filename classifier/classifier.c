@@ -105,7 +105,7 @@ int CSV_reader(char* filename, int n_rows, int dimensions, double data[n_rows][d
         }
     ERROR_printnexit(search_succes, "can't find filename for x\n", "found file x succesfully\n");
 
-    //Read the first line into a dump variable, because we don't need it for the data
+    // Read the first line into a dump variable, because we don't need it for the data
     {
         char dump_char;
         //read so many characters, till we reach the EOL
@@ -172,6 +172,7 @@ void PARTITION(int the_one_out, int n_rows, int dimensions_x, int dimensions_y, 
     }
     */
 }
+
 void MISSINGVALUES_partition_avg(int partions, int n_rows, int dimensions_x, double x[n_rows][dimensions_x], double partitioned_average_x[partions][dimensions_x]) {
     int part_length = n_rows / partions;
     ERROR_printnexit(((n_rows % partions) == 0), "Couldn't part the data into equal integer-like parts. Please change the number of partitions or turn off the MISSINGVALUE function\n", "Data split into equal parts\n");
@@ -202,8 +203,8 @@ void MISSINGVALUES_partition_avg(int partions, int n_rows, int dimensions_x, dou
             }
         }   
     }
-    // There are negative values in this array (weird?)   
-    //please check why this happens
+    // ? There are negative values in this array (weird?)
+    // ToDo please check why this happens
 }
 
 void MISSINGVALUES(int n_rows, int dimensions_x, double x[n_rows][dimensions_x]) {
@@ -216,7 +217,7 @@ void MISSINGVALUES(int n_rows, int dimensions_x, double x[n_rows][dimensions_x])
         }
     }
     MISSINGVALUES_partition_avg(partitions, n_rows, dimensions_x, x, partitioned_average_x);
-    //
+    // * Only for  
     PRINTER(partitions, dimensions_x, partitioned_average_x);
     //MISSINGVALUES_Replace();
 }
