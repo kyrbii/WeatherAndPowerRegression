@@ -223,7 +223,6 @@ void MISSINGVALUES(int n_rows, int dimensions_x, double x[n_rows][dimensions_x])
 }
 
 double MINKOWSKI_distance(int p_mink, int dimension, double data_arr1[dimension], double data_arr2[dimension]) {
-    
     double distance = 0;
     for (size_t dim = 0; dim < dimension; dim++) {
         distance+= (double)pow(fabs((double)(data_arr1[dim] - data_arr2[dim])), p_mink);
