@@ -17,3 +17,7 @@ Drei unterschiedliche arff Dateine erstellen mit Endspalte = y-Kriterium also So
 Per Weka ein wenig mit Regression exprimentieren und die beste Option herausfinden.
 
 Erstes Objective ist aber nun die Erstellung der Dateien (Villeicht die Wetterdaten ein wenig mitteln oder so)
+
+Wenn alles Funktioniert dann maybe noch testen was ist mit Zeiverschiebung sprich also Die Stromdaten eine Stunde später nmit den Weather Daten mappen
+
+# Precision-gradient?? i.e. mean squared error 
