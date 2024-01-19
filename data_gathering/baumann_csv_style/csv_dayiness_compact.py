@@ -1,0 +1,1 @@
+# make a more compact csv where we theoretically could maybe create the mean value for the weather data between the stations

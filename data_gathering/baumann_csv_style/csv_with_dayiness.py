@@ -7,15 +7,13 @@ def calc_dayiness() -> {}:
     # pi divided by twelve would be the representetive value in our cosinus wave for 1 hour 
     for hours in range(24):
         if hours < 10:
-            dayiness[f"0{hours}"] = -1 * math.cos(hours * ((math.pi)/12))
+            dayiness[f"0{hours}"] =round( -1 * math.cos(hours * ((math.pi)/12)), 2)
         else:
-            dayiness[f"{hours}"] = -1 * math.cos(hours * ((math.pi)/12))
-    # print(dayiness)
+            dayiness[f"{hours}"] = round(-1 * math.cos(hours * ((math.pi)/12)), 2)
     return dayiness
 
 def read_data(csv_type, path_ff_weather, dim_weather, path_ff_power, dim_power, dayiness):
     data = [[None]*dim_weather for number in range(8761)]
-    # print(f"ANFANG{data[0]}ENDE{len(data[0])}")
     # think of letting the third row free for the dayiness column
     first = True
     with open(path_ff_weather, "r", newline="") as csv_file:
@@ -23,16 +21,13 @@ def read_data(csv_type, path_ff_weather, dim_weather, path_ff_power, dim_power, 
         
         for ix,row in enumerate(filereader):
             
-            # if first:
-            #     first = False
-            #     continue
             for element in range(len(row)):
                 data[ix][element] = row[element]    
-            # data[ix - 1] = row
         
         for record in data:
             if first:
                     first = False
+                    record.insert(2, "dayiness")        
                     continue
             record.insert(2, f"{dayiness[record[1]]}")
     
@@ -41,16 +36,17 @@ def read_data(csv_type, path_ff_weather, dim_weather, path_ff_power, dim_power, 
         # print(data[0])
         filereader = csv.reader(csv_file, delimiter=",")        
         for ix, row in enumerate(filereader):
-                # if row[csv_type[1]] != "15444/FF-1":
-                data[ix][1415] = f"{row[csv_type[1]]}"
+                data[ix][1416] = f"{row[csv_type[1]]}"
 
 
-    print(f"ANFANG{data[0]}ENDE{len(data[0])}")
+    # print(f"ANFANG{data[0]}ENDE{len(data[0])}")
 
     return data
 
-def write_to_csv(path_saving, dim_weather_p2, data):
-    pass
+def write_to_csv(path_saving, csv_type, dim_weather_p2, data):
+    with open(f"{path_saving}//{csv_type[0]}.csv", "w", newline="") as csv_file:
+         alan_wake = csv.writer(csv_file, delimiter=",")
+         alan_wake.writerows(data)
 
 
 def startup():
@@ -66,8 +62,8 @@ def startup():
     dayiness = calc_dayiness()
 
     for type in csv_types.items():
-        write_to_csv(path_saving, dim_weather_p2,read_data(list(type), path_weather, dim_weather_p2, path_power, dim_power, dayiness))
-        exit()
+        print(f"creating file for {list(type)[0]}")
+        write_to_csv(path_saving, list(type), dim_weather_p2,read_data(list(type), path_weather, dim_weather_p2, path_power, dim_power, dayiness))
     # build a dictionary that crates a negative cosinus style mapping of the daytimeour: dayiness
     
 
