@@ -25,7 +25,7 @@ def make_stripped_csv(fulldata, type):
                     cnt+=1
             # print(rem_avg)
             if cnt == 0:
-                data[ix][column] = -999
+                data[ix][column] = 0
             else:
                 data[ix][column] = rem_avg / cnt
             # print(data[ix][column])
@@ -48,6 +48,13 @@ def times_n_power(full_data, data, type):
         data[ix][12] = full_data[ix][1416]
     return data
 
+def test(stripped):
+    for row in stripped:
+        for ix,val in enumerate(row):
+            if val == -999 or val == -777:
+                if ix != 8:
+                    print(f"missingvalue in column {ix}")
+
 def main():
     csv_types = {"solar":2,
                  "wind_onshore":4,
@@ -61,6 +68,9 @@ def main():
     for type in csv_types.items():
         full_data = CWD.read_data(list(type), path_weather, dim_weather_p2, path_power, dim_power, CWD.calc_dayiness())
         stripped = make_stripped_csv(full_data, list(type))
+        test(stripped)
         CWD.write_to_csv(".", list(type),dim_weather_p2,stripped)
+    print("succesful")
+
 if __name__ == "__main__":
     main()
