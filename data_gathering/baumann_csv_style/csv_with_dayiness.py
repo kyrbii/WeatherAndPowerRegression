@@ -1,4 +1,5 @@
 import csv, math
+import csv_dayiness_compact
 
 def calc_dayiness() -> {}:
     dayiness = {}
@@ -44,7 +45,7 @@ def read_data(csv_type, path_ff_weather, dim_weather, path_ff_power, dim_power, 
     return data
 
 def write_to_csv(path_saving, csv_type, dim_weather_p2, data):
-    with open(f"{path_saving}//{csv_type[0]}.csv", "w", newline="") as csv_file:
+    with open(f"{path_saving}//compact_{csv_type[0]}.csv", "w", newline="") as csv_file:
          alan_wake = csv.writer(csv_file, delimiter=",")
          alan_wake.writerows(data)
 
