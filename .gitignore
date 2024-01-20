@@ -10,3 +10,9 @@ data_gathering/dwd/test_mapping.py
 data_gathering/smard/test.py
 data.txt
 *.png
+!data_gathering/baumann_csv_style/compact_solar.csv
+!data_gathering/baumann_csv_style/compact_wind_offshore.csv
+!data_gathering/baumann_csv_style/compact_wind_onshore.csv
+!data_gathering/baumann_csv_style/solar.csv
+!data_gathering/baumann_csv_style/wind_offshore.csv
+!data_gathering/baumann_csv_style/wind_onshore.csv
