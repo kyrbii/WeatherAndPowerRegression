@@ -8,6 +8,7 @@ def make_stripped_csv(fulldata, type):
     cnt = 0
     column = 3
     first = True
+    # read the data and calculate a mean value for them
     for ix, row in enumerate(fulldata):
         if first:
             first = False
@@ -33,11 +34,13 @@ def make_stripped_csv(fulldata, type):
             column += 1
             start_point += 157
     data = times_n_power(fulldata, data, type)
+    # print the data as a Test to know if its working
     print(data[1])
     return data
 
 def times_n_power(full_data, data, type):
     first = True
+    # make a header row
     for ix, row in enumerate(full_data):
         if first:
             first = False
@@ -50,6 +53,7 @@ def times_n_power(full_data, data, type):
     return data
 
 def test(stripped):
+    # test for missing values
     for row in stripped:
         for ix,val in enumerate(row):
             if val == -999 or val == -777:
@@ -66,6 +70,7 @@ def main():
     path_weather = "..//dwd//dwd_csvs//data_dwd_wo_RR.csv"
     dim_weather_p2 = 1415 + 1
     path_saving = "."
+    # create an csv file for every type of power
     for type in csv_types.items():
         full_data = CWD.read_data(list(type), path_weather, dim_weather_p2, path_power, dim_power, CWD.calc_dayiness())
         stripped = make_stripped_csv(full_data, list(type))
