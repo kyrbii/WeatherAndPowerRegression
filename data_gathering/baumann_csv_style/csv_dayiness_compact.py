@@ -25,6 +25,7 @@ def make_stripped_csv(fulldata, type):
                     cnt+=1
             # print(rem_avg)
             if cnt == 0:
+                # don't forget to document, that the missing SD values (-999) are replaced witrh zeros in the compact dataset 
                 data[ix][column] = 0
             else:
                 data[ix][column] = rem_avg / cnt
