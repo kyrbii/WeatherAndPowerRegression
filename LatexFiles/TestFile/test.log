@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  26 JAN 2024 08:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  26 JAN 2024 09:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/LaTeX/TestFile/test.tex
-(c:/LaTeX/TestFile/test.tex
+**c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/test.tex
+(c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/test.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
 (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -165,14 +165,14 @@ L3 programming layer <2023-11-09>
  ) 
 Here is how much of TeX's memory you used:
  3513 strings out of 474587
- 60820 string characters out of 5745702
+ 61116 string characters out of 5745702
  1925558 words of memory out of 5000000
  25689 multiletter control sequences out of 15000+600000
  567445 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,5n,65p,319b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,5n,65p,356b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on test.pdf (1 page, 31021 bytes).
+Output written on test.pdf (1 page, 31327 bytes).
 PDF statistics:
  17 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

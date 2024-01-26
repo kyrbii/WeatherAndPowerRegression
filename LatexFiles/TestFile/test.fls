@@ -1,6 +1,6 @@
-PWD c:\LaTeX\TestFile
+PWD c:\Code\ML-Project-WeatherAndPower\LatexFiles\TestFile
 INPUT C:\Users\korbi\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\LaTeX\TestFile\test.tex
+INPUT c:\Code\ML-Project-WeatherAndPower\LatexFiles\TestFile\test.tex
 OUTPUT test.log
 INPUT C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
