@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1706256021.92312 "c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/test.tex" "test.pdf" "test" 1706256022.66557 0
+["pdflatex"] 1706364318.14271 "c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/WnPRegression.tex" "WnPRegression.pdf" "WnPRegression" 1706364318.86982 0
   "C:/Users/korbi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1706254776 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/korbi/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1705054257 24213231 9c3e54012f38eb52a6343114e4f79628 ""
   "C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -38,12 +38,12 @@
   "C:/Users/korbi/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/times.sty" 1585926771 888 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
   "C:/Users/korbi/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/korbi/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
+  "WnPRegression.aux" 1706364318 50 efe82f4a8e02e64812815c2eae338072 "pdflatex"
+  "WnPRegression.tex" 1706360586 3851 b7213220711680f8fd999b37422368b1 ""
   "aaai23.sty" 1706253902 8731 c3b936377a9c34f707e0f1ebd6b7c32b ""
-  "c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/test.tex" 1706256021 1645 6c1aea51ed65621ff7001dcf8c9a2139 ""
-  "test.aux" 1706256022 50 efe82f4a8e02e64812815c2eae338072 "pdflatex"
-  "test.tex" 1706256021 1645 6c1aea51ed65621ff7001dcf8c9a2139 ""
+  "c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/WnPRegression.tex" 1706360586 3851 b7213220711680f8fd999b37422368b1 ""
   (generated)
-  "test.aux"
-  "test.log"
-  "test.pdf"
+  "WnPRegression.aux"
+  "WnPRegression.log"
+  "WnPRegression.pdf"
   (rewritten before read)

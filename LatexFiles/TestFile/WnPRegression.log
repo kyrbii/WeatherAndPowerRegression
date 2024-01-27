@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  26 JAN 2024 09:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  27 JAN 2024 15:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/test.tex
-(c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/test.tex
+**c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/WnPRegression.tex
+(c:/Code/ML-Project-WeatherAndPower/LatexFiles/TestFile/WnPRegression.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
 (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -100,30 +100,30 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \ALC@tlm=\skip53
 \algorithmicindent=\skip54
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 39.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 36.
  (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count269
 \l__pdf_internal_box=\box53
-) (test.aux)
-\openout1 = `test.aux'.
+) (WnPRegression.aux)
+\openout1 = `WnPRegression.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
  (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count270
@@ -149,30 +149,39 @@ Package caption Info: End \AtBeginDocument code.
 \c@eqfn=\count276
 \titlearea=\box55
 \actualheight=\skip55
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 40.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 37.
  (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [1{C:/Users/korbi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+)
+Underfull \hbox (badness 1052) in paragraph at lines 48--49
+\OT1/ptm/m/n/10 nun fehlten noch die Daten mit de-nen gear-beitet wer-
+ []
+
+
+Underfull \hbox (badness 3460) in paragraph at lines 50--51
+\OT1/ptm/m/n/10 gung an-hand des vorherrschen-den Wet-ters deuten zu
+ []
+
+[1{C:/Users/korbi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 
-
-] (test.aux)
+] (WnPRegression.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3513 strings out of 474587
- 61116 string characters out of 5745702
- 1925558 words of memory out of 5000000
- 25689 multiletter control sequences out of 15000+600000
+ 3517 strings out of 474587
+ 61265 string characters out of 5745702
+ 1932558 words of memory out of 5000000
+ 25693 multiletter control sequences out of 15000+600000
  567445 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,5n,65p,356b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,5n,65p,681b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on test.pdf (1 page, 31327 bytes).
+Output written on WnPRegression.pdf (1 page, 36828 bytes).
 PDF statistics:
  17 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
