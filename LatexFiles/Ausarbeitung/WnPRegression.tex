@@ -56,8 +56,10 @@
     Bei einer Besprechung mit dem Betreuer des Projekts Herrn Prof. Dr. Baumann das Projekt besprochen wurde wurde klar, dass eine Klassifizierung der Daten nicht das geeignetste Modell für die Analyse der 
     Korrelation ist. So wurde der Plan neu geschrieben und eine Analyse mithilfe von Regressionsalgorithmen in dem Machine-Learning Programm Weka stand ab dem Zeitpunkt im Vordergrund.
     Dafür sollten die Daten noch angepasst und dann mit Weka und den Regressionsalgorithmen experimentiert werden. In dem Sinne, dass das am best geeignete Modell zu Regression gefunden wird!
-\section*{Daten sammeln - Korbi}
-        Die Daten, mit denen die Regression in Weka betrieben werden soll, müssen zuerst zusammengetragen werden. Sowohl die Daten des DWDs, respektive die Wetterdaten, als auch die der Bundesnetzagentur, welche die Daten der Stromerzeugung bereitstellt, stehen leider nicht auf der jeweiligen Websites als Download in Form von z.B. ".csv" oder ".xls" Dateiformaten zur Verfügung. Hier war also eine andere Herangehensweise gefragt. Nun muss zwischen den Daten des DWD und denen der Bundesnetzagentur unterschieden werden, da diese in unterschiedlicher Form vorliegen und somit auch einen unterschiedlichen Sammel-Prozess unterlaufen sind.
+\section*{Daten Recherche}
+        Die Daten, mit denen die Regression in Weka betrieben werden soll, müssen zuerst zusammengetragen werden. Sowohl die Daten des DWDs, respektive die Wetterdaten, als auch die der Bundesnetzagentur(BNetzA), welche die Daten der Stromerzeugung bereitstellt, stehen leider nicht auf der jeweiligen Websites als Download in Form von z.B. ".csv" oder ".xls" Dateiformaten zur Verfügung. Hier war also eine andere Herangehensweise gefragt. Nun muss zwischen den Daten des DWD und denen der BNetzA unterschieden werden, da diese in unterschiedlicher Form vorliegen und somit auch einen unterschiedlichen Sammel-Prozess unterlaufen sind.
+
+        Es ist anzumerken, dass dieser Arbeit einige Dateien beigelegt sind unter denen sich auch ".md" Dateien befinden in welchen sehr speziell auf die einzelnen Schritte und die Struktur eingegangen wurde.
 
     \subsection*{DWD - Daten}
         Der Deutsche Wetterdienst stellt seine Daten auf einem opendata Server zu Verfügung. Nachdem sich in der Dateistrucktur zurechtgefunden wurde, sind auch die ersten Probleme aufgekommen:
@@ -84,10 +86,21 @@
             \subsubsection*{Dateien}
                 In den zeitunterteilenden Ordnern liegen genau eine Datei, die die Liste der Stationen mit ihren Eigenschaften aufzählt, welche den betrachteten Wert aufzeichnen sollen und hunderte komprimierte Ordner, benannt nach Stationscode, Daten der Erfassung (Nur in "historical", nicht in "recent") und erfasste Eigenschaft. Teilweise reichten die erfassten Daten von 1970 bis 2001 oder von mitte 2022 bis Anfang 2023, es war also kein System hinter den Aufzeichnungen zu Erkennen.
                 Die ".zip" Ordner enthalten mehrere Datein, teilweise ".html" und teilweise ".txt" Dateien und das sogar manchmal in doppelter Ausführung. trotz alledem gibt es in jedem Ordner eine ausschlaggebende ".txt" Datei, die die vom Ordnernamen versprochenen Daten beinhalten.
+        \\
         
-        
+        In den angesprochenen Datein allerdings ist eine gewohnte Struktur wiederzufinden. Aufgebaut wie eine "csv" Datei nur mit Semikola getrennte Spalten. Die erste Spalte besteht aus dem Datum gepaart mit der Stundenzahl des Tages im 24h-Format, zu welchem Zeitpunkt die Daten der Reihe von den Messinstrumenten ausgelesen wurden. Die nächsten Spalten (1-3, je nach Datei) bestehen aus den gewünschten Attributen wie Sonnenscheindauer. Das Ende der Zeile macht immer ein "eor" als Zeilenende-Indikator.
+        Manche Werte, unterschiedlich von Station zu Station und je nach Tageszeit sind gar nicht aufgelistet bzw. als fehlend (-999 in der Datei) gekennzeichnet. Für einige Station, wie zuvor schon thematisiert, stehen überhaupt keine Daten für bestimmte Messattribute in Form von Dateien in dem gewünschten Zeitraum zur Verfügung.
+        Oft wurden auch nur in einem Teil des Jahres 2022 Daten erhoben, bzw. zur veröffentlichung auf dem Server freigegeben, was zu "halben" Dateien führt.
 
-    \subsection*{Stromdaten sammeln}
+        Trotz all diesen Hürden war es klar, dass das sammeln dieser Daten nicht "per Hand" realisierbar ist, sondern durch Automatisierung geschehen soll. Ohne vorkenntnisse in Python war das Vorhaben in der Tat anspruchsvoll, aber die überaus breit gefächerte Dokumentation der Sprache und den vielen Bibliotheken erleichterten das Programmieren sehr.
+        Zu den Vorlesungen zu erscheinen, scheinte sich in diesem Zuge zu lohnen, als die Benutzung von RegEx (und somit den Grundlagen der Informatik) das Filtern der Datein um einiges erleichterte. Einmal geschrieben, iterierte das Skript durch alle oben genannten Datenarten und sammelte und entpackte die Dateien auf der eigenen Festplatte. 
+        Die Wetterdaten vollständig heruntergeladen blieb noch die Daten der Bundesnetzagentur.
+
+    \subsection*{BNetzA Daten}
+        Die Bundesnetzagentur stellt ihre weitaus simpleren Daten auf der Website "Strommarktdaten" sehr anschaulich in einem Flächendiagramm dar. Aus solch einem Diagramm Werte in eine Datenbank zu übertragen wäre aber bei den stündlichen Werten von dem ganzen Jahr 2022, sprich 8760 Zeilen einer CSV Datei und jeweils zwölf Datentypen undenkbar. Glücklicherweise liefert die BNetzA nicht eine Grafik an die Website, sondern die Stündlichen Daten in mehreren Dateien vom Typ ".json" an den Browser, wo dann ein Diagramm erstell wird.
+
+        Das heißt, durch einen einfachen "cURL" Befehl auf der Kommandozeile, kann eine solche Datei, wenn der vollständige Name bekannt ist, heruntergeladen werden. Das pattern der Namen |||||
+
 
 
 \section*{Aufbereitung - Kobi}
