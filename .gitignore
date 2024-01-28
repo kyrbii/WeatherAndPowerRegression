@@ -16,3 +16,6 @@ data.txt
 !data_gathering/baumann_csv_style/solar.csv
 !data_gathering/baumann_csv_style/wind_offshore.csv
 !data_gathering/baumann_csv_style/wind_onshore.csv
+tohandinzipfile/dwd
+tohandinzipfile/smard
+tohandinzipfile/baumann_csv_style
