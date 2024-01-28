@@ -1,4 +1,5 @@
 %File: formatting-instructions-latex-2023.tex
+\nocite{*}
 %release 2023.0
 \documentclass[letterpaper]{article} % DO NOT CHANGE THIS
 \usepackage{aaai23}  % DO NOT CHANGE THIS
@@ -18,6 +19,7 @@
 % These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{bibentry}
 
 
 \pdfinfo{
@@ -54,6 +56,16 @@
     Bei einer Besprechung mit dem Betreuer des Projekts Herrn Prof. Dr. Baumann das Projekt besprochen wurde wurde klar, dass eine Klassifizierung der Daten nicht das geeignetste Modell für die Analyse der 
     Korrelation ist. So wurde der Plan neu geschrieben und eine Analyse mithilfe von Regressionsalgorithmen in dem Machine-Learning Programm Weka stand ab dem Zeitpunkt im Vordergrund.
     Dafür sollten die Daten noch angepasst und dann mit Weka und den Regressionsalgorithmen experimentiert werden. In dem Sinne, dass das am best geeignete Modell zu Regression gefunden wird!
-\section*{Daten}
-    Hier könnte was stehen Kay ist der Beste Mann
+\section*{Daten sammeln - Korbi}
+    Siehe Doku in den MD files. Woher die Daten runtergenommen? Wie waren diese Daten unterteilt? Einmal Wetter und einmal Strom! Auswahlverfahren bei den Wetterdaten, welche waren interessant für uns?
+\section*{Aufbereitung}
+    Kobi schreibt hier über ie Python scripts zum aufbereiten - siehe Doku in den MD files
+\section*{Regressionanalyse mit Weka}
+    This will be Kays part to write i think
+\section*{Vergleich von Modellen}
+    Was war denn eignetlich des beste und warum. Was war das Fehlermaß? Wie haben sie sich Zeitlich geschlagen? Weka gut/schlecht? Andere Ideen oder so. Wie war eigentlich Klassifikation - hätte das doch Sinn ergeben?
+\section*{Fazit}
+    Was konnten wir aus dieser Arbeit schließen? Erfolg der Bearbeitung der Fragestellung? Aufwand/Zeit Verhältnis. Ergebnis der Modelle. Hätte man was besser machen können und wie?
+    
+\bibliography{WnPRegression}
 \end{document}

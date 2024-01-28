@@ -45,6 +45,8 @@ INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithmic.sty
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithmic.sty
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\natbib\bibentry.sty
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\natbib\bibentry.sty
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ptm.fd
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ptm.fd
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ptm.fd
@@ -73,6 +75,10 @@ INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.f
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT .\WnPRegression.bbl
+INPUT .\WnPRegression.bbl
+INPUT WnPRegression.bbl
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
 OUTPUT WnPRegression.pdf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
@@ -87,8 +93,12 @@ INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri7t.vf
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT WnPRegression.aux
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmr8a.pfb
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmr8a.pfb
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmri8a.pfb
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmri8a.pfb
