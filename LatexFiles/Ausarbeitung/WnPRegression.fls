@@ -1,6 +1,6 @@
-PWD c:\dev\ML-Project-WeatherAndPower\LatexFiles\Text
+PWD c:\dev\ML-Project-WeatherAndPower\LatexFiles\Ausarbeitung
 INPUT C:\Users\korbinian\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\dev\ML-Project-WeatherAndPower\LatexFiles\Text\WnPRegression.tex
+INPUT c:\dev\ML-Project-WeatherAndPower\LatexFiles\Ausarbeitung\WnPRegression.tex
 OUTPUT WnPRegression.log
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -75,6 +75,9 @@ INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.f
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
 OUTPUT WnPRegression.pdf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
@@ -88,6 +91,9 @@ INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
 INPUT .\WnPRegression.bbl
 INPUT .\WnPRegression.bbl

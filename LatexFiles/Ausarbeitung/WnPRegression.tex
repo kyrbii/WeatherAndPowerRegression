@@ -28,11 +28,11 @@
 
 \setcounter{secnumdepth}{0} %May be changed to 1 or 2 if section numbers are desired.
 
-\title{Stromerzeugung bei unterschiedlichen Wetterlagen -- Datenaufbereitung und Analyse zur Korrelation Mithilfe von Regressionsalgorithmen in Weka}
+\title{Stromerzeugung bei unterschiedlichen Wetterlagen\\-- Datenaufbereitung und Analyse zur Korrelation Mithilfe von Regressionsalgorithmen in Weka}
 \author {
     % Authors
     Korbinian Eller,
-    Kay Gietenbruch,
+    Kay Gietenbruch
 }
 
 \begin{document}
@@ -57,7 +57,39 @@
     Korrelation ist. So wurde der Plan neu geschrieben und eine Analyse mithilfe von Regressionsalgorithmen in dem Machine-Learning Programm Weka stand ab dem Zeitpunkt im Vordergrund.
     Dafür sollten die Daten noch angepasst und dann mit Weka und den Regressionsalgorithmen experimentiert werden. In dem Sinne, dass das am best geeignete Modell zu Regression gefunden wird!
 \section*{Daten sammeln - Korbi}
-    Siehe Doku in den MD files. Woher die Daten runtergenommen? Wie waren diese Daten unterteilt? Einmal Wetter und einmal Strom! Auswahlverfahren bei den Wetterdaten, welche waren interessant für uns? Wie geil waren Die Stromdaten -- Epoch time und so! Wetterdaten waren teilweise nicht vorhanden, also musste man da einen Kompromiss von Historical und recent finden. 
+        Die Daten, mit denen die Regression in Weka betrieben werden soll, müssen zuerst zusammengetragen werden. Sowohl die Daten des DWDs, respektive die Wetterdaten, als auch die der Bundesnetzagentur, welche die Daten der Stromerzeugung bereitstellt, stehen leider nicht auf der jeweiligen Websites als Download in Form von z.B. ".csv" oder ".xls" Dateiformaten zur Verfügung. Hier war also eine andere Herangehensweise gefragt. Nun muss zwischen den Daten des DWD und denen der Bundesnetzagentur unterschieden werden, da diese in unterschiedlicher Form vorliegen und somit auch einen unterschiedlichen Sammel-Prozess unterlaufen sind.
+
+    \subsection*{DWD - Daten}
+        Der Deutsche Wetterdienst stellt seine Daten auf einem opendata Server zu Verfügung. Nachdem sich in der Dateistrucktur zurechtgefunden wurde, sind auch die ersten Probleme aufgekommen:
+        \begin{itemize}
+            \item Welche Wetterdaten sollen benutzt werden?
+            \item Wie werden die gewünschten Zeiträume gefunden?
+            \item Welche Dateien enthalten welche Daten?
+        \end{itemize}
+        Einiges das im ersten Moment sehr unklar erschien! Die Lösungen waren dann wiefolgt:
+            \subsubsection*{Datenart}
+                Es wurde sich auf Eigenschaften beschränkt die aus subjektiver und ungeschulter Sicht stark in die Stromproduktion als Faktoren miteinfließen. In erster Linie handelt es sich um erneuerbare Energien, also galt es bestimmte Naturphänomene, die Photovoltaik-Anlagen oder Windkraftanlagen beiinflussen, auszumachen. Dies sind:
+                \begin{itemize}
+                    \item Lufttemperatur Feuchtigkeit
+                    \item Bedeckungsgrad des Himmels
+                    \item Niederschlag
+                    \item Sonnenscheindauer
+                    \item Sichtweite
+                    \item Wind
+                \end{itemize}
+                Das waren die Unterteilungen der Messwerte auf Seite des DWD
+
+            \subsubsection*{Zeiträume}
+                Da unter jeder der eben aufgezählten Sektionen in dem Dateisystem des Servers eine Unterteilung in "recent" und "historical" stattfand und der gewünschte Zeitraum das Jahr 2022 war, galt es herauszufinden wie die Aufteilung zustande kam. Leider gibt es keine klare Unterteilung und somit blieb nichts anders übrig als in beiden Ordnern nachzuschauen.
+            \subsubsection*{Dateien}
+                In den zeitunterteilenden Ordnern liegen genau eine Datei, die die Liste der Stationen mit ihren Eigenschaften aufzählt, welche den betrachteten Wert aufzeichnen sollen und hunderte komprimierte Ordner, benannt nach Stationscode, Daten der Erfassung (Nur in "historical", nicht in "recent") und erfasste Eigenschaft. Teilweise reichten die erfassten Daten von 1970 bis 2001 oder von mitte 2022 bis Anfang 2023, es war also kein System hinter den Aufzeichnungen zu Erkennen.
+                Die ".zip" Ordner enthalten mehrere Datein, teilweise ".html" und teilweise ".txt" Dateien und das sogar manchmal in doppelter Ausführung. trotz alledem gibt es in jedem Ordner eine ausschlaggebende ".txt" Datei, die die vom Ordnernamen versprochenen Daten beinhalten.
+        
+        
+
+    \subsection*{Stromdaten sammeln}
+
+
 \section*{Aufbereitung - Kobi}
     Siehe Doku in den MD files.
     
@@ -72,4 +104,9 @@
     Was konnten wir aus dieser Arbeit schließen? Erfolg der Bearbeitung der Fragestellung? Aufwand/Zeit Verhältnis. Ergebnis der Modelle. Hätte man was besser machen können und wie?
     
 \bibliography{WnPRegression}
+
+\section{RAUSNEHMEN:}
+\subsection*{Zu Datagathering}        
+    Siehe Doku in den MD files. Woher die Daten runtergenommen? Wie waren diese Daten unterteilt? Einmal Wetter und einmal Strom! Auswahlverfahren bei den Wetterdaten, welche waren interessant für uns? Wie geil waren Die Stromdaten -- Epoch time und so! Wetterdaten waren teilweise nicht vorhanden, also musste man da einen Kompromiss von Historical und recent finden. 
+        \\\\\\\\\\\\
 \end{document}
