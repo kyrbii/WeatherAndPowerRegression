@@ -75,10 +75,6 @@ INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.f
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT .\WnPRegression.bbl
-INPUT .\WnPRegression.bbl
-INPUT WnPRegression.bbl
-INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
 OUTPUT WnPRegression.pdf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
@@ -93,6 +89,10 @@ INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
+INPUT .\WnPRegression.bbl
+INPUT .\WnPRegression.bbl
+INPUT WnPRegression.bbl
+INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri7t.vf
 INPUT C:\Users\korbinian\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT WnPRegression.aux

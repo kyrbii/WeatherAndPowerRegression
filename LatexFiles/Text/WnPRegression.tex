@@ -57,12 +57,16 @@
     Korrelation ist. So wurde der Plan neu geschrieben und eine Analyse mithilfe von Regressionsalgorithmen in dem Machine-Learning Programm Weka stand ab dem Zeitpunkt im Vordergrund.
     Dafür sollten die Daten noch angepasst und dann mit Weka und den Regressionsalgorithmen experimentiert werden. In dem Sinne, dass das am best geeignete Modell zu Regression gefunden wird!
 \section*{Daten sammeln - Korbi}
-    Siehe Doku in den MD files. Woher die Daten runtergenommen? Wie waren diese Daten unterteilt? Einmal Wetter und einmal Strom! Auswahlverfahren bei den Wetterdaten, welche waren interessant für uns?
-\section*{Aufbereitung}
-    Kobi schreibt hier über ie Python scripts zum aufbereiten - siehe Doku in den MD files
-\section*{Regressionanalyse mit Weka}
-    This will be Kays part to write i think
-\section*{Vergleich von Modellen}
+    Siehe Doku in den MD files. Woher die Daten runtergenommen? Wie waren diese Daten unterteilt? Einmal Wetter und einmal Strom! Auswahlverfahren bei den Wetterdaten, welche waren interessant für uns? Wie geil waren Die Stromdaten -- Epoch time und so! Wetterdaten waren teilweise nicht vorhanden, also musste man da einen Kompromiss von Historical und recent finden. 
+\section*{Aufbereitung - Kobi}
+    Siehe Doku in den MD files.
+    
+    Wetter: Von den Zip dateien in die CSV Dateien. Von den CSV In eine Große CSV. Fehlwerte, fehlende Csvs, erst einmal eine Große mit allen und dann eine kompaktere mit nur den 157 vollständigen. Dann einen  noch kompaktere ohne RR-2 i think. Dann eine noch kompaktere meaned csv. -> ab in eine arff file für weka über den Weka explorer.
+
+    Power: Viele einzelne Json Dateine die nicht über genau das Jahr auch gehen. epoch in normale time codes. Json in CSV umwandeln. Die Paar csvs dann in eine größere mit den Epoch timecodes. Dann auf das Jahr 2022 beschneiden mit den Epoch Codes
+\section*{Regressionanalyse mit Weka - Kay}
+    Vorgehen beschreiben. Welche Modelle? Weka Version? Welche Files? Gab es Probleme? Auffällige Zeiten? Kompatiblität mit fehlwerten? Hat was gespackt uws. Sachen aus dem Weka Buch hilfreich?
+\section*{Vergleich von Modellen - Kay}
     Was war denn eignetlich des beste und warum. Was war das Fehlermaß? Wie haben sie sich Zeitlich geschlagen? Weka gut/schlecht? Andere Ideen oder so. Wie war eigentlich Klassifikation - hätte das doch Sinn ergeben?
 \section*{Fazit}
     Was konnten wir aus dieser Arbeit schließen? Erfolg der Bearbeitung der Fragestellung? Aufwand/Zeit Verhältnis. Ergebnis der Modelle. Hätte man was besser machen können und wie?

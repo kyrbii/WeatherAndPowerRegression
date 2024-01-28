@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.28)  28 JAN 2024 11:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.28)  28 JAN 2024 11:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -164,9 +164,11 @@ Underfull \hbox (badness 3460) in paragraph at lines 52--53
 \OT1/ptm/m/n/10 gung an-hand des vorherrschen-den Wet-ters deuten zu
  []
 
-(WnPRegression.bbl) [1{C:/Users/korbinian/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+[1{C:/Users/korbinian/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
+
+] (WnPRegression.bbl) [2
 
 ] (WnPRegression.aux)
  ***********
@@ -177,15 +179,15 @@ L3 programming layer <2024-01-04>
 Here is how much of TeX's memory you used:
  3568 strings out of 474486
  62583 string characters out of 5741867
- 1936542 words of memory out of 5000000
+ 1938542 words of memory out of 5000000
  25837 multiletter control sequences out of 15000+600000
  569129 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,5n,65p,676b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WnPRegression.pdf (1 page, 49700 bytes).
+Output written on WnPRegression.pdf (2 pages, 51499 bytes).
 PDF statistics:
- 22 PDF objects out of 1000 (max. 8388607)
+ 25 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

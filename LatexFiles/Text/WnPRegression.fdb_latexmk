@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex WnPRegression"] 1706437520.60292 "WnPRegression.aux" "WnPRegression.bbl" "WnPRegression" 1706437521.95898 0
+["bibtex WnPRegression"] 1706437752.89289 "WnPRegression.aux" "WnPRegression.bbl" "WnPRegression" 1706438090.96629 0
   "./WnPRegression.bib" 1706437518 263 1cad0e69d1e90b1a0381a79723d9c056 ""
   "./aaai23.bst" 1706433406 31696 4d39232d90d42e4ff308566bef9adc10 ""
-  "WnPRegression.aux" 1706437521 145 a5c91b4af119f443c0f381f862695aa8 "pdflatex"
+  "WnPRegression.aux" 1706438090 145 b93b495f4a913548e67aadf3bdc147ee "pdflatex"
   (generated)
   "WnPRegression.bbl"
   "WnPRegression.blg"
   (rewritten before read)
-["pdflatex"] 1706437520.8975 "c:/dev/ML-Project-WeatherAndPower/LatexFiles/Text/WnPRegression.tex" "WnPRegression.pdf" "WnPRegression" 1706437521.95953 0
+["pdflatex"] 1706438089.85166 "c:/dev/ML-Project-WeatherAndPower/LatexFiles/Text/WnPRegression.tex" "WnPRegression.pdf" "WnPRegression" 1706438090.96699 0
   "C:/Users/korbinian/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1706434788 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/korbinian/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1706434057 24226934 4b0a12de0e22f0a85a7b2d2e36f5620f ""
   "C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -51,11 +51,11 @@
   "C:/Users/korbinian/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/times.sty" 1585926771 888 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
   "C:/Users/korbinian/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/korbinian/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "WnPRegression.aux" 1706437521 145 a5c91b4af119f443c0f381f862695aa8 "pdflatex"
-  "WnPRegression.bbl" 1706437520 334 abfde7685b0306b53cd95648a281b73f "bibtex WnPRegression"
-  "WnPRegression.tex" 1706437520 4805 3fb69d7668556b7b37dd39492fc36429 ""
+  "WnPRegression.aux" 1706438090 145 b93b495f4a913548e67aadf3bdc147ee "pdflatex"
+  "WnPRegression.bbl" 1706437753 334 abfde7685b0306b53cd95648a281b73f "bibtex WnPRegression"
+  "WnPRegression.tex" 1706438089 5690 a674b128533f2c6ad76a2b67656f0b71 ""
   "aaai23.sty" 1706433406 8966 c3b936377a9c34f707e0f1ebd6b7c32b ""
-  "c:/dev/ML-Project-WeatherAndPower/LatexFiles/Text/WnPRegression.tex" 1706437520 4805 3fb69d7668556b7b37dd39492fc36429 ""
+  "c:/dev/ML-Project-WeatherAndPower/LatexFiles/Text/WnPRegression.tex" 1706438089 5690 a674b128533f2c6ad76a2b67656f0b71 ""
   (generated)
   "WnPRegression.aux"
   "WnPRegression.log"
