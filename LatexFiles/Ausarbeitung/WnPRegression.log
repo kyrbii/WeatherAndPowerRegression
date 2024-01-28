@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.28)  28 JAN 2024 16:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.28)  28 JAN 2024 20:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -155,18 +155,18 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 39
  (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Underfull \hbox (badness 1052) in paragraph at lines 50--51
+Underfull \hbox (badness 1052) in paragraph at lines 48--49
 \OT1/ptm/m/n/10 nun fehlten noch die Daten mit de-nen gear-beitet wer-
  []
 
 
-Underfull \hbox (badness 3460) in paragraph at lines 52--53
+Underfull \hbox (badness 3460) in paragraph at lines 50--51
 \OT1/ptm/m/n/10 gung an-hand des vorherrschen-den Wet-ters deuten zu
  []
 
 
-Underfull \hbox (badness 2495) in paragraph at lines 65--66
-\OT1/ptm/m/n/10 open-data Server zu Verf[]ugung. Nach-dem sich in der
+Underfull \hbox (badness 1215) in paragraph at lines 54--55
+\OT1/ptm/m/n/10 si-fizierung der Daten nicht das geeignet-ste Mod-ell f[]ur
  []
 
 [1{C:/Users/korbinian/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
@@ -174,31 +174,36 @@ Underfull \hbox (badness 2495) in paragraph at lines 65--66
 
 
 ]
-Underfull \hbox (badness 2617) in paragraph at lines 87--90
+Underfull \hbox (badness 2495) in paragraph at lines 71--72
+\OT1/ptm/m/n/10 open-data Server zu Verf[]ugung. Nach-dem sich in der
+ []
+
+
+Underfull \hbox (badness 2617) in paragraph at lines 93--96
 \OT1/ptm/m/n/10 nicht in "re-cent") und er-fasste Eigen-schaft. Teil-weise
  []
 
 
-Underfull \hbox (badness 2744) in paragraph at lines 87--90
+Underfull \hbox (badness 2744) in paragraph at lines 93--96
 \OT1/ptm/m/n/10 ".txt" Dateien und das sogar manch-mal in dop-pel-ter
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
+Underfull \hbox (badness 10000) in paragraph at lines 93--96
 
  []
 
 
-Underfull \hbox (badness 5862) in paragraph at lines 91--94
-[]\OT1/ptm/m/n/10 In den ange-sproch-enen Datein allerd-ings ist eine
+Underfull \hbox (badness 5862) in paragraph at lines 97--100
+[]\OT1/ptm/m/n/10 In den ange-sproch-enen Datein ist allerd-ings eine
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 91--94
+Underfull \hbox (badness 1406) in paragraph at lines 97--100
 \OT1/ptm/m/n/10 gewohnte Struk-tur wiederzufinden. Aufge-baut wie eine
  []
 
-(WnPRegression.bbl
+[2] (WnPRegression.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 5--8
 []\OT1/ptm/m/n/10 Bundesnetzagentur. 2023.  BNetzA (01.01.2022-
  []
@@ -208,49 +213,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 []\OT1/ptm/m/n/10 Deutscher-Wetterdienst. 2023.  DWD (01.01.2022-
  []
 
-[2])
-Underfull \hbox (badness 1859) in paragraph at lines 123--125
-\OT1/ptm/m/n/10 Strom-daten -- Epoch time und so! Wet-ter-daten waren
- []
-
-
-Underfull \hbox (badness 2261) in paragraph at lines 123--125
-\OT1/ptm/m/n/10 teil-weise nicht vorhan-den, also musste man da einen
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
-
- []
-
-[3
-
-] (WnPRegression.aux)
+) [3] (WnPRegression.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -259,13 +222,13 @@ L3 programming layer <2024-01-04>
 Here is how much of TeX's memory you used:
  3581 strings out of 474486
  62847 string characters out of 5741867
- 1941542 words of memory out of 5000000
+ 1942542 words of memory out of 5000000
  25849 multiletter control sequences out of 15000+600000
  571576 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,5n,65p,735b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WnPRegression.pdf (3 pages, 59890 bytes).
+Output written on WnPRegression.pdf (3 pages, 61633 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
