@@ -138,7 +138,7 @@
         Trotzdem wurde festgestellt, dass es einen Bereich in dem Dokument gibt, der nur aus Fehlwerten besteht (-999). Das waren die Werte der Niederschlagsform. Auch in der Datenrecherche wurde bereits festgestellt, dass diese Spalte meist einfach nur Fehlwerte beinhaltet. Kurzerhand wurde entscheiden, dass dieser Indikator/Zahlencode keine besonders ausschlaggebende Bedeutung besitzt und er wurde in der nächste Verfeinerung der Dateien aus allen Stationen weggelassen.
 
         \subsubsection*{Strom als Additum für Weka}
-            Anders als für den selbstgebauten Klassifikator, müssen für die Regression in Weka die Wetterdaten und dazugehörigen Stromdaten innerhalb einer Datei vorliegen, um sie sinnvoll zu verwerten. Da die erneuerbaren Energien Sonnenstrom und Windstrom essentiell waren, kreierten wir 3 unterschiedliche Dateien. Allen diente die eben beschriebene Datei als Basis und als letzte Spalte wurde die Stromerzeugung in MWh angehängt. Einmal Solarstrom, einmal offshore Windkraft und einmal onshore Windkraft.
+            Anders als für den selbstgebauten Klassifikator, müssen für die Regression in Weka die Wetterdaten und dazugehörigen Stromdaten innerhalb einer Datei vorliegen, um sie sinnvoll zu verwerten. Da die erneuerbaren Energien Sonnenstrom und Windstrom essentiell waren, wurden 3 unterschiedliche Dateien kreiert. Allen diente die eben beschriebene Datei als Basis und als letzte Spalte wurde die Stromerzeugung in MWh angehängt. Einmal Solarstrom, einmal offshore Windkraft und einmal onshore Windkraft.
 
             Um das Testen unterschiedlicher Algorithmen in Weka schneller zu machen, wurden noch kompaktere Dateien erstellt, bei denen der Durchschnitt aller Wetterdaten als Wert für diesen Wetterdatentyp dient. Fehlwerte wurden nicht in den Durchschnitt mit einberechnet. Bei der Sonnenscheindauer waren oft zwischen 22Uhr und 3Uhr morgens, keine Aufzeichnungen bei allen 157 Stationen und dieser Wert wurde dann in der kompakteren Datei als realistische Abbildung auf 0 gesetzt.
             Auch an diese Dateien wurden dann analog zum vorherigen Prozess die Stromdaten als letzte Spalte angehängt.
@@ -153,7 +153,7 @@
 \section*{Vergleich von Modellen - Kay}
     Was war denn eignetlich des beste und warum. Was war das Fehlermaß? Wie haben sie sich Zeitlich geschlagen? Weka gut/schlecht? Andere Ideen oder so. Wie war eigentlich Klassifikation - hätte das doch Sinn ergeben?
 \section*{Fazit}
-    Was konnten wir aus dieser Arbeit schließen? Erfolg der Bearbeitung der Fragestellung? Aufwand/Zeit Verhältnis. Ergebnis der Modelle. Hätte man was besser machen können und wie?
+    Was kann aus der Arbeit geschlossen werden? Erfolg der Bearbeitung der Fragestellung? Aufwand/Zeit Verhältnis. Ergebnis der Modelle. Hätte man was besser machen können und wie?
     
 \bibliography{WnPRegression}
 \end{document}
