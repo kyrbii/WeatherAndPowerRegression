@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  31 JAN 2024 12:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  31 JAN 2024 15:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -209,76 +209,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--146
  []
 
 [3]
-Underfull \hbox (badness 2753) in paragraph at lines 169--170
+Underfull \hbox (badness 2753) in paragraph at lines 171--172
  \OT1/ptm/b/n/10 De-ci-sion Tree (REP-tree) \OT1/ptm/m/n/10 Entschei-dungsb[]aume bilden
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 \OT1/ptm/m/n/10 Daten als Entschei-dungsregeln ab. Diese Entschei-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--176
+Underfull \hbox (badness 10000) in paragraph at lines 175--178
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 177.
+(Font)              <7> on input line 179.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 177.
+(Font)              <5> on input line 179.
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 211--213
+Underfull \hbox (badness 1515) in paragraph at lines 213--215
 \OT1/ptm/m/n/10 Die lin-eare Re-gres-sion dauert auch bei den gek[]urzten
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 214--215
+Underfull \hbox (badness 2035) in paragraph at lines 216--217
 \OT1/ptm/m/n/10 einem ab-so-lute er-ror 23,0% auf 28,3%. REP-tree ver-
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 216--218
+Underfull \hbox (badness 4279) in paragraph at lines 220--222
 \OT1/ptm/m/n/10 Fil-tere-in-stel-lun-gen verbessert wer-den k[]onnen. Da die
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--218
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+Underfull \hbox (badness 10000) in paragraph at lines 220--222
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 254--256
+Underfull \hbox (badness 10000) in paragraph at lines 234--237
 
  []
 
 
-Underfull \hbox (badness 2310) in paragraph at lines 268--270
+Underfull \hbox (badness 10000) in paragraph at lines 258--260
+
+ []
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 272--274
 \OT1/ptm/m/n/10 Jedoch f[]uhrte diese Ein-stel-lung zu keinen merk-lichen
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 272--273
+Underfull \hbox (badness 1721) in paragraph at lines 279--280
 \OT1/ptm/m/n/10 iten, war der Prozess des Sam-melns und Kul-tivierens
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 276--277
+Underfull \hbox (badness 3815) in paragraph at lines 283--284
 \OT1/ptm/m/n/10 Dateien zufrieden-stel-lende Werte. Dass die gek[]urzten
  []
 
 
-Underfull \hbox (badness 1221) in paragraph at lines 276--277
+Underfull \hbox (badness 1221) in paragraph at lines 283--284
 \OT1/ptm/m/n/10 Durch weniger Train-ings-daten k[]onnen die Al-go-rith-men
  []
 
@@ -292,6 +292,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 []\OT1/ptm/m/n/10 Deutscher-Wetterdienst. 2023.  DWD (01.01.2022-
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--18
+[]\OT1/ptm/m/n/10 Jenifa, A. aufgerufen am.  30.01.2024.
+ []
+
 ) [5] (WnPRegression.aux)
  ***********
 LaTeX2e <2023-11-01>
@@ -299,15 +304,15 @@ L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3588 strings out of 474587
- 62746 string characters out of 5745702
+ 3592 strings out of 474587
+ 62787 string characters out of 5745702
  1945558 words of memory out of 5000000
- 25755 multiletter control sequences out of 15000+600000
+ 25759 multiletter control sequences out of 15000+600000
  571576 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,65p,1108b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WnPRegression.pdf (5 pages, 76135 bytes).
+Output written on WnPRegression.pdf (5 pages, 78584 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

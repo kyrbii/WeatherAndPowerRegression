@@ -150,8 +150,10 @@
 \section{Auswahl geeigneter Modelle}
     Bei der Wahl eines KI Algorithmus muss man die grundlegende Unterteilung in Klassifikationsalgorithmen und Regressionsalgorithmen beachten. Bei der Klassifikation werden die Daten in Kategorien eingeteilt. Bei der Regression ist der Output numerisch. Da es das Ziel war numerische Stromdaten vorherzusagen, eignen sich Regressionsalgorithmen für diese Aufgabe.
     
+    Mögliche Algorithmen wären beispielsweise die Polynomregression, ein Modell, mit dem es möglich ist, nicht lineare Beziehungen zu modellieren. Die Lasso-Regression ist eine Regressionsmethode, die durch die Einführung eines Strafterms in der Kostenfunktion der linearen Regression die Vorhersagegenauigkeit verbessert. Ein weiteres lineares Modell ist die Ridge-Regression, bei der der Kostenfunktion ein Strafterm hinzugefügt wird. Die Bayessische lineare Regression ist ein probabilistischer Ansatz zur linearen Regression auf der Grundlage des Bayes-Theorems.
+    
     Für die Tests wurde die Weka Version 3.8.6 verwendet.
-    Weka bietet eine Vielzahl von unterschiedlichen Regressionsalgorithmen an. Es erschien logisch, die Tests auf die folgenden 5 Algorithmen zu konzentrieren:
+    Weka bietet eine Vielzahl von unterschiedlichen Regressionsalgorithmen an. Es erschien sinnvoll, die Tests auf die folgenden 5 Algorithmen zu konzentrieren:
     
     \subsubsection*{Lineare Regression}
         Bei der Linearen Regression werden alle Input Variablen gewichtet und zu einer Linearkombination zusammengefügt. Mit dieser Gleichung ist es möglich, einen numerischen Wert vorherzusagen. Die lineare Regression ist jedoch nur sinnvoll, wenn eine lineare Abhängigkeit zwischen den Daten besteht.
@@ -171,7 +173,7 @@
 
 \section*{Analyse mit Weka}
     Ein Hindernis für die tatsächliche Analyse der Daten ist die Größe der Dateien und die damit verbundene Laufzeit. Von den ausgewählten Algorithmen waren nur KNN und Reptree dazu in der Lage, die gesamten Dateien in annehmbarer Zeit zu bearbeiten.
-    Beim Vergleich der Daten wird der Relative Absolute Error als Hauptkriterium verwendet. Dieser unterscheidet sich kaum vom Root Relative Squared Error. Der Root Relative Squared Error ist immer konstant größer als der Relative Absolute Error. Deswegen hätte es keinen Unterschied beim Vergleichen der Algorithmen gegeben.
+    Beim Vergleich der Daten wird der Relative Absolute Error als Hauptkriterium verwendet. Dieser unterscheidet sich kaum vom Root Relative Squared Error. Der Root Relative Squared Error ist meist konstant größer als der Relative Absolute Error. Deswegen hätte es keinen Unterschied beim Vergleichen der Algorithmen gegeben.
     \hfill\break
     \begin{center}
         \begin{tabular}{|l||l|l|l|}
@@ -212,6 +214,8 @@
     Die lineare Regression dauert auch bei den gekürzten Dateien ca. 45 Minuten. Das Multilayer Perceptron braucht mehrere Stunden.
 
     Jedoch liefern die gekürzten Dateien schlechtere Werte als die Gesamtdateien. Für KNN verschlechterte sich von einem absolute error 23,0\% auf 28,3\%. REPtree verschlechterte sich von 16,0\% auf 35,1\%. Vier der Algorithmen landen bei ca. 30\%. Deutlich schlechter ist nur das Multilayer Perceptron mit 59,9\%.
+
+    Nur bei den gekürzten Datein gibt es bei zwei Algorithmen einen merklichen Unterschied zwischen dem Relative Absolute Squared Error und dem Root Mean Squared Error. Beim KNN, Multilayer Perceptron und Reptree liegen die Root Mean Squared Errors deutlich über den Absolute Squared Errors. Bei der Linearen Regression und dem SMOreg sind beide Werte fast gleich.
 
     Da die Daten eine große Menge an Fehlwerten enthalten, stellte sich die Frage, ob die Ergebnisse durch verschiedene Filtereinstellungen verbessert werden können. Da die Fehlwerte in den Daten auf entweder -777 oder -999 festgelegt sind, ist es möglich, mit dem NumericCleaner Filter alle Fehlwerte zu markieren. Da die Daten keine hohen Negative Werte enthalten, ist es möglich, nach allen hohen negativen Werte zu filtern. Danach können alle als fehlend markierten Werte durch den Replace Missing Values Filter durch den Durchschnitt dieser Spalte ersetzt werden.
     \hfill\break
@@ -267,6 +271,9 @@
     \end{center}
     \hfill\break
     Jedoch führte diese Einstellung zu keinen merklichen Veränderungen.
+
+    \subsection*{Vergleich der Algorithmen}
+    Interessanterweise haben KNN, REPTree, Lineare Regression und SMOreg bei den gekürzten Dateien sehr ähnlich performt. Leider war es nicht sinnvoll, Lineare Regression und SMOreg auf den ganzen Dateien zu testen, da die Laufzeit zu lang ist. Die Ergebnisse dieser beiden Algorithmen wären sicherlich interessant gewesen. Auffallend ist besonders die schlechte Performance des Multilayer Perceptrons. Vielleicht wäre es möglich gewesen, durch die Änderung von Einstellungen dieses Ergebnis zu verbessern. Aufgrund der langen Laufzeit des MLP (3-5 Stunden für die auf 150 Instanzen gekürzten Dateien) ist es jedoch schwer möglich, an den Einstellungen “herumzuspielen”.
 
 \section*{Fazit}
     Mit den geringen Kenntnissen in Python und in der Handhabung mit großen Datenmengen bzw. diese aufzubereiten, war der Prozess des Sammelns und Kultivierens überraschend aufwändig. Die Unverfügbarkeit von bestehenden zusammenhängenden Datensätzen machte deren Benutzung für diese Aufgabenstellung allerdings unmöglich. 

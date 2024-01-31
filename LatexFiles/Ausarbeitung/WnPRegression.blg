@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: WnPRegression.aux
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+The style file: aaai23.bst
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+Database file #1: WnPRegression.bib
+You've used 4 entries,
+            2840 wiz_defined-function locations,
+            601 strings with 4889 characters,
+and the built_in function-call counts, 1830 in all, are:
+= -- 140
+> -- 75
+< -- 0
++ -- 28
+- -- 25
+* -- 107
+:= -- 339
+add.period$ -- 16
+call.type$ -- 4
+change.case$ -- 23
+chr.to.int$ -- 5
+cite$ -- 4
+duplicate$ -- 138
+empty$ -- 142
+format.name$ -- 27
+if$ -- 345
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 28
+newline$ -- 24
+num.names$ -- 17
+pop$ -- 62
+preamble$ -- 1
+purify$ -- 22
+quote$ -- 0
+skip$ -- 57
+stack$ -- 0
+substring$ -- 44
+swap$ -- 54
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 33
+warning$ -- 0
+while$ -- 16
+width$ -- 0
+write$ -- 52
