@@ -16,6 +16,9 @@ data.txt
 !data_gathering/baumann_csv_style/solar.csv
 !data_gathering/baumann_csv_style/wind_offshore.csv
 !data_gathering/baumann_csv_style/wind_onshore.csv
-tohandinzipfile/dwd
-tohandinzipfile/smard
-tohandinzipfile/baumann_csv_style
+Weather_Power_Regression/dwd
+Weather_Power_Regression/smard
+Weather_Power_Regression/baumann_csv_style
+Weather_Power_Regression(1).zip
+Weather_Power_Regression/README.md
+Weather_Power_Regression/Vollstandige_Ergebnisse_der_Weka_Analyse.pdf
