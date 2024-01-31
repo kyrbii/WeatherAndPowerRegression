@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  30 JAN 2024 14:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  31 JAN 2024 11:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -208,7 +208,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--146
 
  []
 
-[3] (WnPRegression.bbl
+[3]
+Underfull \hbox (badness 2753) in paragraph at lines 169--170
+ \OT1/ptm/b/n/10 De-ci-sion Tree (REP-tree) \OT1/ptm/m/n/10 Entschei-dungsb[]aume bilden
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+\OT1/ptm/m/n/10 Daten als Entschei-dungsregeln ab. Diese Entschei-
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 176.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 176.
+
+Underfull \hbox (badness 1515) in paragraph at lines 209--210
+\OT1/ptm/m/n/10 Die lin-eare Re-gres-sion dauert auch bei den gek[]urzten
+ []
+
+
+Underfull \hbox (badness 2035) in paragraph at lines 211--212
+\OT1/ptm/m/n/10 einem ab-so-lute er-ror 23,0% auf 28,3%. REP-tree ver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--229
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+
+ []
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 264--266
+\OT1/ptm/m/n/10 Jedoch f[]uhrte diese Ein-stel-lung zu keinen merk-lichen
+ []
+
+(WnPRegression.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 5--8
 []\OT1/ptm/m/n/10 Bundesnetzagentur. 2023.  BNetzA (01.01.2022-
  []
@@ -218,7 +257,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 []\OT1/ptm/m/n/10 Deutscher-Wetterdienst. 2023.  DWD (01.01.2022-
  []
 
-) [4
+) [5
 
 ] (WnPRegression.aux)
  ***********
@@ -227,17 +266,17 @@ L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3582 strings out of 474587
- 62604 string characters out of 5745702
- 1942558 words of memory out of 5000000
- 25749 multiletter control sequences out of 15000+600000
+ 3588 strings out of 474587
+ 62746 string characters out of 5745702
+ 1946558 words of memory out of 5000000
+ 25755 multiletter control sequences out of 15000+600000
  571576 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,5n,65p,1108b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,6n,65p,1108b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WnPRegression.pdf (4 pages, 67544 bytes).
+Output written on WnPRegression.pdf (5 pages, 74793 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
+ 34 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

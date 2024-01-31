@@ -146,12 +146,126 @@
 
         Um die Dateien dann noch schneller in Weka zu laden wurden alle ".csv" Dateien in ein ".arff" Format übersetzt, mit welchem sich Weka besser zurechtfindet.
 
-\section*{Regressionanalyse mit Weka - Kay}
-    Vorgehen beschreiben. Welche Modelle? Weka Version? Welche Files? Gab es Probleme? Auffällige Zeiten? Kompatiblität mit fehlwerten? Hat was gespackt uws. Sachen aus dem Weka Buch hilfreich?
-\section*{Vergleich von Modellen - Kay}
-    Was war denn eignetlich des beste und warum. Was war das Fehlermaß? Wie haben sie sich Zeitlich geschlagen? Weka gut/schlecht? Andere Ideen oder so. Wie war eigentlich Klassifikation - hätte das doch Sinn ergeben?
+
+\section{Auswahl geeigneter Modelle}
+    Bei der Wahl eines KI Algorithmus muss man die grundlegende Unterteilung in Klassifikationsalgorithmen und Regressionsalgorithmen beachten. Bei der Klassifikation werden die Daten in Kategorien eingeteilt. Bei der Regression ist der Output numerisch. Da es das Ziel war numerische Stromdaten vorherzusagen, eignen sich Regressionsalgorithmen für diese Aufgabe.
+    
+    Für die Tests wurde die Weka Version 3.8.6 verwendet.
+    Weka bietet eine Vielzahl von unterschiedlichen Regressionsalgorithmen an. Es erschien logisch, die Tests auf die folgenden 5 Algorithmen zu konzentrieren:
+    
+    \subsubsection*{Lineare Regression}
+        Bei der Linearen Regression werden alle Input Variablen gewichtet und zu einer Linearkombination zusammengefügt. Mit dieser Gleichung ist es möglich, einen numerischen Wert vorherzusagen. Die lineare Regression ist jedoch nur sinnvoll, wenn eine lineare Abhängigkeit zwischen den Daten besteht.
+    
+    \subsubsection*{Multilayer Perceptron}
+        Das MLP ist ein künstliches neuronales Netzwerk. Es besteht aus mindestens 3 Schichten. Dem Input Layer, mindestens einem Hidden Layer und dem Output Layer. Die Schichten bestehen aus miteinander verknüpften und gewichteten Neuronen. 
+    
+    \subsubsection*{KNN (lazy IBK)}
+        K Nearest Neighbours kann auch für Regression verwendet werden.Beim KNN wird der Abstand zu allen anderen Punkten berechnet, um den am nächsten liegenden Punkt zu finden. Bei der KNN-Regression wird dem Datenpunkt der Durchschnitt der k nächsten Nachbarn zugeordnet.
+    
+    \subsubsection*{Support Vector Regression (SMOreg)}
+        Bei der Support Vector Regression wird eine Hyperebene erstellt, mit deren Hilfe der Abstand zwischen den vorhergesagten Ausgaben und den tatsächlichen Ausgaben minimiert wird. Dazu kommen Kernel Funktionen zum Einsatz.
+    
+    \subsubsection*{Decision Tree (REPtree)}
+        Entscheidungsbäume bilden Daten als Entscheidungsregeln ab. Diese Entscheidungsregeln können graphisch dargestellt werden. Der von Weka implementierte REPTree nutzt “reduced error pruning”. Dabei wird ein Bottom-Up Algorithmus verwendet, um den Entscheidungsbaum zu kürzen.
+    
+
+\section*{Analyse mit Weka}
+    Ein Hindernis für die tatsächliche Analyse der Daten ist die Größe der Dateien und die damit verbundene Laufzeit. Von den ausgewählten Algorithmen waren nur KNN und Reptree dazu in der Lage, die gesamten Dateien in annehmbarer Zeit zu bearbeiten.
+    
+    \begin{center}
+        \begin{tabular}{|l||l|l|l|}
+            \hline
+            RAE in \%&solar&wind onshore&wind offshore\\
+            \hline
+            \hline
+            knn k=1&23.0258&10.1998&17.7827\\
+            \hline
+            REPtree&26.2540&31.5993&47.0417\\
+            \hline
+        \end{tabular}
+    \end{center}
+    Interessanterweise liefert KNN bei den Wind Dateien ein besseres Ergebnis. REPtree verhält sich entgegengesetzt und liefert für Solar ein besseres Ergebnis. Die Ergebnisse für die Wind Dateien verschlechterten sich bei REPtree deutlich. 
+
+    Da beispielsweise das Multilayer Perceptron nach über 10 Stunden nicht fertig wurde, mussten die Dateien gekürzt werden, um mit den restlichen Algorithmen arbeiten zu können. Eine Kürzung zu 10\% der ursprünglichen Menge führte zu einem Crash,weswegen die Algorithmen mit 150 Instanzen getestet wurden. 
+
+    \begin{center}
+        \begin{tabular}{|l||l|}
+            \hline
+            RAE in \%&solar\\
+            \hline
+            \hline
+            knn k=1&28.3896\\
+            \hline
+            REPtree&35.0764\\
+            \hline
+            Linear Regression&31.2483\\
+            \hline
+            Multilayer Perceptron&59.8705\\
+            \hline
+            SMOreg&35.1404\\
+            \hline
+        \end{tabular}
+    \end{center}
+    Die lineare Regression dauert auch bei den gekürzten Dateien ca. 45 Minuten. Das Multilayer Perceptron braucht mehrere Stunden.
+
+    Jedoch liefern die gekürzten Dateien schlechtere Werte als die Gesamtdateien. Für KNN verschlechterte sich von einem absolute error 23,0\% auf 28,3\%. REPtree verschlechterte sich von 16,0\% auf 35,1\%. Vier der Algorithmen landen bei ca. 30\%. Deutlich schlechter ist nur das Multilayer Perceptron mit 59,9\%.
+
+    Da die Daten eine große Menge an Fehlwerten enthalten, stellte sich die Frage, ob die Ergebnisse durch verschiedene Filtereinstellungen verbessert werden können. Da die Fehlwerte in den Daten auf entweder -777 oder -999 festgelegt sind, ist es möglich, mit dem NumericCleaner Filter alle Fehlwerte zu markieren. Da die Daten keine hohen Negative Werte enthalten, ist es möglich, nach allen hohen negativen Werte zu filtern. Danach können alle als fehlend markierten Werte durch den Replace Missing Values Filter durch den Durchschnitt dieser Spalte ersetzt werden.
+
+    \begin{center}
+        \begin{tabular}{|l||l|l|l|}
+            \hline
+            RAE in \%&solar&wind onshore&wind offshore\\
+            \hline
+            \hline
+            knn k=1&21.9235&10.0296&13.8952\\
+            \hline
+            REPtree&16.8667&27.7824&38.2625\\
+            \hline
+        \end{tabular}
+    \end{center}
+    In den ganzen Dateien haben sich die Werte kaum verändert. Die Fehlwerte hatten keinen merkliche Einwirkung auf diese Ergebnisse.
+    \hfill\break
+    \begin{center}
+        \begin{tabular}{|l||l|}
+            \hline
+            RAE in \%&solar\\
+            \hline
+            \hline
+            knn k=1&28.1755\\
+            \hline
+            REPtree&26.5653\\
+            \hline
+            Linear Regression&26.8595\\
+            \hline
+            Multilayer Perceptron&99.3440\\
+            \hline
+            SMOreg&29.7308\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \hfill\break
+    Jedoch in den gekürzten Dateien verbesserte sich der Absolute Error bei REPtree (35,0 \% zu 26,6 \%), linear Regression (31,2 \% zu 26,9 \%) und SMOreg (35,1\% zu 29,7\%). KNN blieb gleich (28,4 \% zu 28,2 \%). Multilayer Perceptron jedoch verschlechterte sich katastrophal (59,9 \ zu 99,3 \%)
+
+    Eine weitere Option ist der Normalize Filter. Durch ihn werden alle Werte in den Bereich -1 und 1 übersetzt (scale: 2 translation: -1). Die Daten unterscheiden sich oft drastisch in Bezug auf ihre Größe. Besonders bei Distanz basierten Algorithmen kann dies zu Problemen führen.
+    \hfill\break
+    \begin{center}
+        \begin{tabular}{|l||l|l|l|}
+            \hline
+            RAE in \%&solar&wind onshore&wind offshore\\
+            \hline
+            \hline
+            knn k=1&21.9235&10.0296&13.8952\\
+            \hline
+            REPtree&16.8361&27.8090&38.2492\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \hfill\break
+    Jedoch führte diese Einstellung zu keinen merklichen Veränderungen.
+
 \section*{Fazit}
     Was kann aus der Arbeit geschlossen werden? Erfolg der Bearbeitung der Fragestellung? Aufwand/Zeit Verhältnis. Ergebnis der Modelle. Hätte man was besser machen können und wie?
-    
+
 \bibliography{WnPRegression}
 \end{document}
