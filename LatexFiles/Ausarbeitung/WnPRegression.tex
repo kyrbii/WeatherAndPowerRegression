@@ -171,7 +171,8 @@
 
 \section*{Analyse mit Weka}
     Ein Hindernis für die tatsächliche Analyse der Daten ist die Größe der Dateien und die damit verbundene Laufzeit. Von den ausgewählten Algorithmen waren nur KNN und Reptree dazu in der Lage, die gesamten Dateien in annehmbarer Zeit zu bearbeiten.
-    
+    Beim Vergleich der Daten wird der Relative Absolute Error als Hauptkriterium verwendet. Dieser unterscheidet sich kaum vom Root Relative Squared Error. Der Root Relative Squared Error ist immer konstant größer als der Relative Absolute Error. Deswegen hätte es keinen Unterschied beim Vergleichen der Algorithmen gegeben.
+    \hfill\break
     \begin{center}
         \begin{tabular}{|l||l|l|l|}
             \hline
@@ -184,10 +185,11 @@
             \hline
         \end{tabular}
     \end{center}
+    \hfill\break
     Interessanterweise liefert KNN bei den Wind Dateien ein besseres Ergebnis. REPtree verhält sich entgegengesetzt und liefert für Solar ein besseres Ergebnis. Die Ergebnisse für die Wind Dateien verschlechterten sich bei REPtree deutlich. 
 
     Da beispielsweise das Multilayer Perceptron nach über 10 Stunden nicht fertig wurde, mussten die Dateien gekürzt werden, um mit den restlichen Algorithmen arbeiten zu können. Eine Kürzung zu 10\% der ursprünglichen Menge führte zu einem Crash,weswegen die Algorithmen mit 150 Instanzen getestet wurden. 
-
+    \hfill\break
     \begin{center}
         \begin{tabular}{|l||l|}
             \hline
@@ -206,12 +208,13 @@
             \hline
         \end{tabular}
     \end{center}
+    \hfill\break
     Die lineare Regression dauert auch bei den gekürzten Dateien ca. 45 Minuten. Das Multilayer Perceptron braucht mehrere Stunden.
 
     Jedoch liefern die gekürzten Dateien schlechtere Werte als die Gesamtdateien. Für KNN verschlechterte sich von einem absolute error 23,0\% auf 28,3\%. REPtree verschlechterte sich von 16,0\% auf 35,1\%. Vier der Algorithmen landen bei ca. 30\%. Deutlich schlechter ist nur das Multilayer Perceptron mit 59,9\%.
 
     Da die Daten eine große Menge an Fehlwerten enthalten, stellte sich die Frage, ob die Ergebnisse durch verschiedene Filtereinstellungen verbessert werden können. Da die Fehlwerte in den Daten auf entweder -777 oder -999 festgelegt sind, ist es möglich, mit dem NumericCleaner Filter alle Fehlwerte zu markieren. Da die Daten keine hohen Negative Werte enthalten, ist es möglich, nach allen hohen negativen Werte zu filtern. Danach können alle als fehlend markierten Werte durch den Replace Missing Values Filter durch den Durchschnitt dieser Spalte ersetzt werden.
-
+    \hfill\break
     \begin{center}
         \begin{tabular}{|l||l|l|l|}
             \hline
@@ -224,6 +227,7 @@
             \hline
         \end{tabular}
     \end{center}
+    \hfill\break
     In den ganzen Dateien haben sich die Werte kaum verändert. Die Fehlwerte hatten keinen merkliche Einwirkung auf diese Ergebnisse.
     \hfill\break
     \begin{center}
@@ -265,7 +269,11 @@
     Jedoch führte diese Einstellung zu keinen merklichen Veränderungen.
 
 \section*{Fazit}
-    Was kann aus der Arbeit geschlossen werden? Erfolg der Bearbeitung der Fragestellung? Aufwand/Zeit Verhältnis. Ergebnis der Modelle. Hätte man was besser machen können und wie?
+    Mit den geringen Kenntnissen in Python und in der Handhabung mit großen Datenmengen bzw. diese aufzubereiten, war der Prozess des Sammelns und Kultivierens überraschend aufwändig. Die Unverfügbarkeit von bestehenden zusammenhängenden Datensätzen machte deren Benutzung für diese Aufgabenstellung allerdings unmöglich. 
+    
+    Die Arbeit mit Weka war grundsätzlich weniger interessant als das eigenständige Programmieren der KI. Weka ist ein praktisches Tool. Aber für Personen, die an der Funktionsweise von Künstlichen Intelligenzen interessiert sind, ist es relativ unspektakulär, da man durch die Nutzung von Weka nicht lernt, wie die Künstlichen Intelligenzen aufgebaut sind und funktionieren.
+    
+    Grundsätzlich liefern die Algorithmen für die ganzen Dateien zufriedenstellende Werte. Dass die gekürzten Dateien schlechtere Ergebnisse liefern, war zu erwarten. Durch weniger Trainingsdaten können die Algorithmen weniger gut trainiert werden, wodurch sie schlechter abschneiden. Das liegt auch an der Varianz der Daten, die in den kompakten Dateien verloren geht. Überraschend war der geringe Einfluss den, die Fehlwerte auf das Ergebnis haben. Anscheinend spielen die Fehlwerte auf Grund der großen Datenmenge keine Rolle. Außerdem ist es erstaunlich, dass die Normalisierung der Werte keinen Einfluss auf das Ergebnis hat. 
 
 \bibliography{WnPRegression}
 \end{document}
