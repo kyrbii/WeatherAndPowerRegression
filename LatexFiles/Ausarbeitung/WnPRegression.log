@@ -1,25 +1,25 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  31 JAN 2024 15:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.28)  21 FEB 2024 22:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Code/ML-Project-WeatherAndPower/LatexFiles/Ausarbeitung/WnPRegression.tex
-(c:/Code/ML-Project-WeatherAndPower/LatexFiles/Ausarbeitung/WnPRegression.tex
-LaTeX2e <2023-11-01>
-L3 programming layer <2023-11-09>
-(C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+**c:/dev/ML-Project-WeatherAndPower/LatexFiles/Ausarbeitung/WnPRegression.tex
+(c:/dev/ML-Project-WeatherAndPower/LatexFiles/Ausarbeitung/WnPRegression.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+(C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
 File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count186
-\c@section=\count187
-\c@subsection=\count188
-\c@subsubsection=\count189
-\c@paragraph=\count190
-\c@subparagraph=\count191
-\c@figure=\count192
-\c@table=\count193
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
@@ -28,42 +28,42 @@ Package: aaai23 2023/06/27 AAAI 2023 Submission format
 
 Conference Style for AAAI for LaTeX 2e -- version for submission
 \titlebox=\skip50
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-)) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\courier.sty
+)) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\courier.sty
 Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip51
 \bibsep=\skip52
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count194
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+\c@NAT@ctr=\count195
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen143
 \captionmargin=\dimen144
@@ -75,39 +75,39 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen150
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count195
-\c@continuedfloat=\count196
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+\c@caption@flags=\count196
+\c@continuedfloat=\count197
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count197
+\c@float@type=\count198
 \float@exts=\toks18
 \float@box=\box51
 \@float@everytoks=\toks19
 \@floatcapt=\box52
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks20
-\c@algorithm=\count198
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.sty
+\c@algorithm=\count199
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count199
-\c@ALC@line=\count266
-\c@ALC@rem=\count267
-\c@ALC@depth=\count268
+\c@ALC@unique=\count266
+\c@ALC@line=\count267
+\c@ALC@rem=\count268
+\c@ALC@depth=\count269
 \ALC@tlm=\skip53
 \algorithmicindent=\skip54
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/natbib\bibentry.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/natbib\bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 38.
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count269
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count270
 \l__pdf_internal_box=\box53
 ) (WnPRegression.aux)
 \openout1 = `WnPRegression.aux'.
@@ -126,159 +126,159 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count270
+\scratchcounter=\count271
 \scratchdimen=\dimen151
 \scratchbox=\box54
-\nofMPsegments=\count271
-\nofMParguments=\count272
+\nofMPsegments=\count272
+\nofMParguments=\count273
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count273
+\MPscratchCnt=\count274
 \MPscratchDim=\dimen152
-\MPnumerator=\count274
-\makeMPintoPDFobject=\count275
+\MPnumerator=\count275
+\makeMPintoPDFobject=\count276
 \everyMPtoPDFconversion=\toks22
-) (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+) (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@eqfn=\count276
+\c@eqfn=\count277
 \titlearea=\box55
 \actualheight=\skip55
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 39.
- (C:\Users\korbi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+ (C:\Users\korbinian\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Underfull \hbox (badness 3460) in paragraph at lines 50--51
+Underfull \hbox (badness 3460) in paragraph at lines 54--55
 \OT1/ptm/m/n/10 gung an-hand des vorherrschen-den Wet-ters deuten zu
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 54--55
+Underfull \hbox (badness 1215) in paragraph at lines 58--59
 \OT1/ptm/m/n/10 si-fizierung der Daten nicht das geeignet-ste Mod-ell f[]ur
  []
 
 
-Underfull \hbox (badness 2707) in paragraph at lines 58--59
+Underfull \hbox (badness 2707) in paragraph at lines 62--63
 \OT1/ptm/m/n/10 beigelegt sind, unter de-nen sich auch ".md" Dateien
  []
 
-[1{C:/Users/korbi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+[1{C:/Users/korbinian/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 
 ]
-Underfull \hbox (badness 2495) in paragraph at lines 71--72
+Underfull \hbox (badness 2495) in paragraph at lines 75--76
 \OT1/ptm/m/n/10 open-data Server zu Verf[]ugung. Nach-dem sich in der
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 93--96
+Underfull \hbox (badness 1484) in paragraph at lines 97--100
 \OT1/ptm/m/n/10 Dateien, teil-weise ".html" und teil-weise ".txt" Dateien
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 93--96
+Underfull \hbox (badness 1694) in paragraph at lines 97--100
 \OT1/ptm/m/n/10 ".txt" Datei, die die vom Ord-ner-na-men ver-sproch-enen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--96
+Underfull \hbox (badness 10000) in paragraph at lines 97--100
 
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 97--100
+Underfull \hbox (badness 3907) in paragraph at lines 101--104
 []\OT1/ptm/m/n/10 In den ange-sproch-enen Dateien ist allerd-ings eine
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 97--100
+Underfull \hbox (badness 1406) in paragraph at lines 101--104
 \OT1/ptm/m/n/10 gewohnte Struk-tur wiederzufinden. Aufge-baut wie eine
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 143--146
+Underfull \hbox (badness 10000) in paragraph at lines 147--150
 
  []
 
 [3]
-Underfull \hbox (badness 2753) in paragraph at lines 171--172
+Underfull \hbox (badness 2753) in paragraph at lines 175--176
  \OT1/ptm/b/n/10 De-ci-sion Tree (REP-tree) \OT1/ptm/m/n/10 Entschei-dungsb[]aume bilden
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 \OT1/ptm/m/n/10 Daten als Entschei-dungsregeln ab. Diese Entschei-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--178
+Underfull \hbox (badness 10000) in paragraph at lines 179--182
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 179.
+(Font)              <7> on input line 183.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 179.
+(Font)              <5> on input line 183.
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--199
 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 213--215
+Underfull \hbox (badness 1515) in paragraph at lines 217--219
 \OT1/ptm/m/n/10 Die lin-eare Re-gres-sion dauert auch bei den gek[]urzten
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 216--217
+Underfull \hbox (badness 2035) in paragraph at lines 220--221
 \OT1/ptm/m/n/10 einem ab-so-lute er-ror 23,0% auf 28,3%. REP-tree ver-
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 220--222
+Underfull \hbox (badness 4279) in paragraph at lines 224--226
 \OT1/ptm/m/n/10 Fil-tere-in-stel-lun-gen verbessert wer-den k[]onnen. Da die
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--222
+Underfull \hbox (badness 10000) in paragraph at lines 224--226
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 234--237
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
 
  []
 
 
-Underfull \hbox (badness 2310) in paragraph at lines 272--274
+Underfull \hbox (badness 2310) in paragraph at lines 276--278
 \OT1/ptm/m/n/10 Jedoch f[]uhrte diese Ein-stel-lung zu keinen merk-lichen
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 279--280
+Underfull \hbox (badness 1721) in paragraph at lines 283--284
 \OT1/ptm/m/n/10 iten, war der Prozess des Sam-melns und Kul-tivierens
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 283--284
+Underfull \hbox (badness 3815) in paragraph at lines 287--288
 \OT1/ptm/m/n/10 Dateien zufrieden-stel-lende Werte. Dass die gek[]urzten
  []
 
 
-Underfull \hbox (badness 1221) in paragraph at lines 283--284
+Underfull \hbox (badness 1221) in paragraph at lines 287--288
 \OT1/ptm/m/n/10 Durch weniger Train-ings-daten k[]onnen die Al-go-rith-men
  []
 
@@ -299,20 +299,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--18
 
 ) [5] (WnPRegression.aux)
  ***********
-LaTeX2e <2023-11-01>
-L3 programming layer <2023-11-09>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3592 strings out of 474587
- 62787 string characters out of 5745702
- 1945558 words of memory out of 5000000
- 25759 multiletter control sequences out of 15000+600000
+ 3592 strings out of 474486
+ 63038 string characters out of 5741867
+ 1946542 words of memory out of 5000000
+ 25860 multiletter control sequences out of 15000+600000
  571576 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,1108b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/korbi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WnPRegression.pdf (5 pages, 78584 bytes).
+ 57i,6n,65p,1107b,185s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/korbinian/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on WnPRegression.pdf (5 pages, 78583 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
